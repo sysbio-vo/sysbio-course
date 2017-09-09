@@ -8,7 +8,7 @@ sudo apt-get dist-upgrade
 
 To check if you really have the most fresh install run again update and you will see
 
-```
+```asciidoc
 aln@aln-vb:~$ sudo apt-get upgrade
 Reading package lists... Done
 Building dependency tree       
