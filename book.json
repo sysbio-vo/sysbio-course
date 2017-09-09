@@ -1,7 +1,7 @@
 {
     "plugins": [
         "ace",
-        -"highlight"
+        "-highlight"
     ],
     "pluginsConfig": {}
 }
