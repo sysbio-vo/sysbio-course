@@ -1,6 +1,8 @@
 {
     "plugins": [
-        "ace"
+        "ace",
+        "include-codeblock",
+        "-highlight"
     ],
     "pluginsConfig": {
         "include-codeblock": {
