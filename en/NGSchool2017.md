@@ -1,6 +1,6 @@
 > **Note: **If you use VirtualBox and want to enable copy-paste between host and virtual machine, you need to download and install VirtualBox Guest Additions from Devices menu. After that reboot and click Devices -&gt; Shared Clipboard -&gt; Bidirectional.
 
-```
+```bash
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
@@ -8,7 +8,7 @@ sudo apt-get dist-upgrade
 
 To check if you really have the most fresh install run again update and you will see
 
-```asciidoc
+```bash
 aln@aln-vb:~$ sudo apt-get upgrade
 Reading package lists... Done
 Building dependency tree       
