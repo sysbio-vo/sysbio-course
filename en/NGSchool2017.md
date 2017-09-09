@@ -1,3 +1,15 @@
+### Contents
+
+[Basic commands to deal with packages in Ubuntu](#basic-commands-to-deal-with-packages-in-ubuntu)
+
+#### 
+
+#### 
+
+#### Basic commands to deal with packages in Ubuntu
+
+
+
 > Assuming you start from clean Ubuntu 16.04.
 >
 > **Note: **If you use VirtualBox and want to enable copy-paste between host and virtual machine, you need to download and install VirtualBox Guest Additions from Devices menu. After that reboot and click Devices -&gt; Shared Clipboard -&gt; Bidirectional.
@@ -51,19 +63,7 @@ R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
 Copyright (C) 2015 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
-R is free software and comes with ABSOLUTELY NO WARRANTY.
-You are welcome to redistribute it under certain conditions.
-Type 'license()' or 'licence()' for distribution details.
-
-  Natural language support but running in an English locale
-
-R is a collaborative project with many contributors.
-Type 'contributors()' for more information and
-'citation()' on how to cite R or R packages in publications.
-
-Type 'demo()' for some demos, 'help()' for on-line help, or
-'help.start()' for an HTML browser interface to help.
-Type 'q()' to quit R.
+...
 
 >
 ```
@@ -114,30 +114,48 @@ r-cran-spatial/xenial 7.3-11-1xenial0 amd64 [upgradable from: 7.3-11-1]
 r-cran-survival/xenial 2.41-3-2xenial0 amd64 [upgradable from: 2.38-3-1]
 r-doc-html/xenial,xenial 3.4.1-2xenial0 all [upgradable from: 3.2.3-4]
 r-recommended/xenial,xenial 3.4.1-2xenial0 all [upgradable from: 3.2.3-4]
-
 ```
 
 Finally we can initiate upgrade with our usual command:
 
-```
+```bash
 sudo apt-get upgrade
 ```
 
 But where is this repo stored we added? Try to examine the following folder:
 
-```
+```bash
 ls /etc/apt/
 cat /etc/apt/sources.list
 ```
 
 It happens that our repository had been added into the separate file. And actually, instead of using add-apt-repository command one can do it manually by editing corresponding files:
 
-```
+```bash
 aln@aln-vb:~$ cat /etc/apt/sources.list.d/marutter-ubuntu-rrutter-xenial.list 
 deb http://ppa.launchpad.net/marutter/rrutter/ubuntu xenial main
 # deb-src http://ppa.launchpad.net/marutter/rrutter/ubuntu xenial main
-
 ```
+
+Following command will remove the binaries, but not the configuration or data files of the package, and  will leave dependencies untouched.
+
+```bash
+sudo apt-get remove r-base
+```
+
+will remove about_everything _regarding the package`packagename`, but not the dependencies installed with it on installation. Both commands are equivalent. Particularly useful when you want to 'start all over' with an application because you messed up the configuration. However, it does not remove configuration or data files residing in users home directories, usually in hidden folders there. There is no easy way to get those removed as well.
+
+```bash
+apt-get purge packagename
+```
+
+removes orphaned packages, i.e. installed packages that used to be installed as an dependency, but aren't any longer. Use this after removing a package which had installed dependencies you're no longer interested in.
+
+```bash
+apt-get autoremove
+```
+
+> Danger of using autoremove
 
 
 
