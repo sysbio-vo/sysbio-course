@@ -2,13 +2,13 @@
 
 [Basic commands to deal with packages in Ubuntu](#basic-commands-to-deal-with-packages-in-ubuntu)
 
-#### 
+[Installing packages with conda](#installing-packages-with-conda)
 
-#### 
+
+
+
 
 #### Basic commands to deal with packages in Ubuntu
-
-
 
 > Assuming you start from clean Ubuntu 16.04.
 >
@@ -143,7 +143,7 @@ Following command will remove the binaries, but not the configuration or data fi
 sudo apt-get remove r-base
 ```
 
-will remove about_everything _regarding the package`packagename`, but not the dependencies installed with it on installation. Both commands are equivalent. Particularly useful when you want to 'start all over' with an application because you messed up the configuration. However, it does not remove configuration or data files residing in users home directories, usually in hidden folders there. There is no easy way to get those removed as well.
+will remove about\_everything \_regarding the package`packagename`, but not the dependencies installed with it on installation. Both commands are equivalent. Particularly useful when you want to 'start all over' with an application because you messed up the configuration. However, it does not remove configuration or data files residing in users home directories, usually in hidden folders there. There is no easy way to get those removed as well.
 
 ```bash
 apt-get purge packagename
@@ -158,4 +158,14 @@ apt-get autoremove
 > Danger of using autoremove
 
 
+
+#### Installing packages with conda
+
+
+
+
+
+sfasdf
+
+asdfasd
 
