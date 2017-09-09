@@ -33,19 +33,18 @@ If we run upgrade again we can see that everything is ok:
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 ```
 
-
-
-
+Let's say we need to install R:
 
 ```cpp
-// my first program in C++
-#include <iostream>
-
-int main()
-{
-  std::cout << "Hello World!";
-}
+sudo apt-get install r-base-core
+sudo apt-get install r-recommended
 ```
+
+> Always use **sudo** over **su**: only particular command will run as super-user; you will be asked for your password, so you can think twice before executing; attempts to invoke sudo can be logged.
+
+
+
+
 
 
 
