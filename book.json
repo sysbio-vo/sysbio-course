@@ -1,6 +1,5 @@
 {
     "plugins": [
-        "-highlight",
         "ace"
     ],
     "pluginsConfig": {
