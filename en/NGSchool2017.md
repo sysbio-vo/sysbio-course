@@ -10,7 +10,7 @@
 
 Assuming you start with clean Ubuntu 16.04.
 
-> **Note: **If you use VirtualBox and want to enable copy-paste between host and virtual machine, you need to download and install VirtualBox Guest Additions from Devices menu. After that reboot and click Devices -&gt; Shared Clipboard -&gt; Bidirectional.
+> **NB: **If you use VirtualBox and want to enable copy-paste between host and virtual machine, you need to download and install VirtualBox Guest Additions from Devices menu. After that reboot and click Devices -&gt; Shared Clipboard -&gt; Bidirectional.
 
 ```bash
 sudo apt-get update
@@ -50,7 +50,7 @@ apt-cache search r | grep statistic
 sudo apt-get install r-base-core r-recommended
 ```
 
-> Always use **sudo** over **su**: only particular command will run as super-user; you will be asked for your password, so you can think twice before executing; attempts to invoke sudo can be logged.
+> **NB: **Always use **sudo** over **su**: only particular command will run as super-user; you will be asked for your password, so you can think twice before executing; attempts to invoke sudo can be logged.
 
 Let's run R:
 
@@ -78,7 +78,7 @@ We can also look at the version table as well:
 apt-cache policy r-base
 ```
 
-> If you want to know more about apt-cache command, just run it in the console without any parameters
+> **NB:** If you want to know more about apt-cache command, just run it in the console without any parameters
 
 After googling we found out that default Ubuntu repository does not contain the most fresh R distribution, as packages are updated gradually when some time passes after package authors updates it. We are suggested to add custom repository, which contains fresh R:
 
@@ -137,11 +137,11 @@ removes orphaned packages, i.e. installed packages that used to be installed as 
 apt-get autoremove
 ```
 
-> Danger of using autoremove
+> **NB: **Danger of using autoremove
 
 #### Installing R packages
 
-Local folder
+**Very important. **Local folder
 
 ```bash
 aln@notik:/$ cat /etc/R/Renviron
