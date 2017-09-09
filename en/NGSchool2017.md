@@ -139,15 +139,11 @@ apt-get autoremove
 
 > Danger of using autoremove
 
-
-
 #### Installing R packages
-
-
 
 Local folder
 
-```
+```bash
 aln@notik:/$ cat /etc/R/Renviron
 ...
 # edd Jun 2017  Comment-out R_LIBS_USER
@@ -157,7 +153,7 @@ R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/3.4'}
 
 With Bioconductor:
 
-```
+```bash
 asdfasdf
 ```
 
