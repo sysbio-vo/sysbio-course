@@ -8,7 +8,7 @@ sudo apt-get dist-upgrade
 
 To check if you really have the most fresh install run again update and you will see
 
-```bash
+```
 aln@aln-vb:~$ sudo apt-get upgrade
 Reading package lists... Done
 Building dependency tree       
@@ -20,11 +20,9 @@ The following packages have been kept back:
 0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
 ```
 
-
-
 sdfg
 
-```cpp
+```
 // my first program in C++
 #include <iostream>
 
