@@ -5,7 +5,7 @@
     "pluginsConfig": {
         "include-codeblock": {
             "template": "ace",
-            "theme": "monokai"
+            "theme": "chrome"
         }
     }
 }
