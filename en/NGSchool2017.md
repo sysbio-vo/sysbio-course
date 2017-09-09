@@ -22,7 +22,7 @@ The following packages have been kept back:
 
 sdfg
 
-```
+```cpp
 // my first program in C++
 #include <iostream>
 
