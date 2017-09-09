@@ -3,10 +3,9 @@
 ```bash
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get dist-upgrade
 ```
 
-To check if you really have the most fresh install run again update and you will see
+To check if you really have the most fresh install run again upgrade and you will see
 
 ```bash
 aln@aln-vb:~$ sudo apt-get upgrade
@@ -20,7 +19,19 @@ The following packages have been kept back:
 0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
 ```
 
-sdfg
+asdfasdf
+
+```bash
+sudo apt-get dist-upgrade
+```
+
+To check if you really have the most fresh install run again upgrade and you will see
+
+```bash
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+```
+
+
 
 ```cpp
 // my first program in C++
