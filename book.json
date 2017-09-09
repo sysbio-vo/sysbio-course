@@ -3,5 +3,10 @@
         "ace",
         "-highlight"
     ],
-    "pluginsConfig": {}
+    "pluginsConfig": {
+        "include-codeblock": {
+            "template": "ace",
+            "theme": "monokai"
+        }
+    }
 }
