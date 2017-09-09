@@ -2,14 +2,13 @@
     "gitbook": ">=3.0.0",
     "plugins": [
         "-highlight",
-        "include-codeblock",
+        "sunlight-highlighter",
         "ace"
     ],
     "pluginsConfig": {
-        "include-codeblock": {
-            "template": "ace",
-            "unindent": true,
-            "theme": "monokai"
+        "sunlight-highlighter": {
+            "theme": "dark",
+            "lineNumber": true
         }
     }
 }
