@@ -8,8 +8,8 @@
 
 #### Basic commands to deal with packages in Ubuntu
 
-> Assuming you start from clean Ubuntu 16.04.
->
+Assuming you start with clean Ubuntu 16.04.
+
 > **Note: **If you use VirtualBox and want to enable copy-paste between host and virtual machine, you need to download and install VirtualBox Guest Additions from Devices menu. After that reboot and click Devices -&gt; Shared Clipboard -&gt; Bidirectional.
 
 ```bash
