@@ -4,9 +4,6 @@
         "ace"
     ],
     "pluginsConfig": {
-        "include-codeblock": {
-            "template": "ace",
-            "theme": "coffee"
-        }
+
     }
 }
