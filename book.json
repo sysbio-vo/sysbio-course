@@ -4,8 +4,10 @@
         "ace"
     ],
     "pluginsConfig": {
-        ace: {
-            "theme" : "monokai"
+        "include-codeblock": {
+            "template": "ace",
+            "unindent": true,
+            "theme": "monokai"
         }
     }
 }
