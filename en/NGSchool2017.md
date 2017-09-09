@@ -2,6 +2,8 @@
 
 [Basic commands to deal with packages in Ubuntu](#basic-commands-to-deal-with-packages-in-ubuntu)
 
+[Installing R packages](#installing-r-packages)
+
 [Installing packages with conda](#installing-packages-with-conda)
 
 #### Basic commands to deal with packages in Ubuntu
@@ -139,9 +141,27 @@ apt-get autoremove
 
 
 
+#### Installing R packages
 
 
 
+Local folder
+
+```
+aln@notik:/$ cat /etc/R/Renviron
+...
+# edd Jun 2017  Comment-out R_LIBS_USER
+R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/3.4'}
+...
+```
+
+With Bioconductor:
+
+```
+asdfasdf
+```
+
+#### 
 
 #### Installing packages with conda
 
