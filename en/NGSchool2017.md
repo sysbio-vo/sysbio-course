@@ -141,7 +141,7 @@ apt-get autoremove
 
 #### Installing R packages
 
-**Very important. **Local folder
+> **NB: **It will save you a lot of pain if you install all the packages in the local folder even on your personal computer, this way you can easily install and update packages using RStudio graphical interface or install latest packages not available for your distribution. Starting from Jun 2017 though, you need to uncomment following line and specify your local lib path in the config file \(previously R did it interactively\).
 
 ```bash
 aln@notik:/$ cat /etc/R/Renviron
@@ -151,10 +151,31 @@ R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/3.4'}
 ...
 ```
 
-With Bioconductor:
+The most convenient way to install packages is through Bioconductor \(especially for bio-related stuff\):
 
 ```bash
-asdfasdf
+## Install Bioconductor
+## try http:// if https:// URLs are not supported
+source("https://bioconductor.org/biocLite.R")
+biocLite()
+
+## Install specific package
+biocLite("Rsubread")
+```
+
+Or using default functions:
+
+```
+# Check installed packages
+installed.packages()
+# Install specific package
+install.packages("ggplot2")
+# Update packages
+update.packages()
+# Update without prompts for permission
+update.packages(ask = FALSE)
+# Update only a specific package (the same as install)
+install.packages("plotly")
 ```
 
 #### 
