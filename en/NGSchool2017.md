@@ -139,7 +139,7 @@ apt-get autoremove
 
 > **NB: **Danger of using autoremove
 
-Sometimes you need to install .deb package manually, you can do it with:
+Sometimes you need to install .deb package manually \(without Software Manager\), for example RStudio:
 
 ```bash
 wget https://download1.rstudio.org/rstudio-xenial-1.0.153-amd64.deb 
