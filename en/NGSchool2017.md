@@ -139,6 +139,16 @@ apt-get autoremove
 
 > **NB: **Danger of using autoremove
 
+
+
+In case smth went wrong:
+
+```
+sudo apt-get -f install
+```
+
+
+
 Sometimes you need to install .deb package manually \(without Software Manager\), for example RStudio:
 
 ```bash
