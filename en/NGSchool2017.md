@@ -139,6 +139,14 @@ apt-get autoremove
 
 > **NB: **Danger of using autoremove
 
+Sometimes you need to install .deb package manually, you can do it with:
+
+```
+
+```
+
+
+
 #### Installing R packages
 
 > **NB: **It will save you a lot of pain if you install all the packages in the local folder even on your personal computer, this way you can easily install and update packages using RStudio graphical interface or install latest packages not available for your distribution. Starting from Jun 2017 though, you need to uncomment following line and specify your local lib path in the config file \(previously R did it interactively\).
