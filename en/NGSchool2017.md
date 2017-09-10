@@ -141,11 +141,10 @@ apt-get autoremove
 
 Sometimes you need to install .deb package manually, you can do it with:
 
+```bash
+wget https://download1.rstudio.org/rstudio-xenial-1.0.153-amd64.deb 
+sudo dpkg -i rstudio-xenial-1.0.153-amd64.deb
 ```
-
-```
-
-
 
 #### Installing R packages
 
