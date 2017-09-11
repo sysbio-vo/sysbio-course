@@ -328,5 +328,9 @@ conda list
 
 
 
+```
+conda environments
+```
+
 
 
