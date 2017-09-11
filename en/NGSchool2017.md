@@ -146,41 +146,58 @@ apt-get autoremove
 
 In case smth went wrong the following command attempts to correct a system with broken dependencies in place:
 
-```
+```bash
 sudo apt-get -f install
 ```
 
 If you want to get an idea of what an action will do use simulate flas:
 
-```
+```bash
 sudo apt-get install -s r-base
 ```
 
 Autoconfirm your choices with "yes" answer:
 
-```
+```bash
 sudo apt-get remove -y r-base
 ```
 
 Download, but not install:
 
-```
+```bash
 sudo apt-get install -d r-base
 ```
 
 Suppress all the output:
 
-```
+```bash
 sudo apt-get remove -qq r-base
 ```
-
-
 
 Sometimes you need to install .deb package manually \(without Software Manager\), for example RStudio:
 
 ```bash
 wget https://download1.rstudio.org/rstudio-xenial-1.0.153-amd64.deb 
 sudo dpkg -i rstudio-xenial-1.0.153-amd64.deb
+```
+
+If you execute the lines above on a clean Ubuntu 16.04 you will most likely have error message similar to this:
+
+```bash
+aln@aln-vb:~/Downloads$ sudo dpkg -i rstudio-xenial-1.0.153-amd64.deb 
+(Reading database ... 215529 files and directories currently installed.)
+Preparing to unpack rstudio-xenial-1.0.153-amd64.deb ...
+Unpacking rstudio (1.0.153) over (1.0.153) ...
+dpkg: dependency problems prevent configuration of rstudio:
+ rstudio depends on libjpeg62; however:
+  Package libjpeg62 is not installed.
+...
+```
+
+Since you're not installing RStudio from the repository the dependencies are not installed automatically, in this case you can simple install manually:
+
+```
+sudo apt-get install libjpeg62
 ```
 
 #### Installing R packages
@@ -221,8 +238,6 @@ update.packages(ask = FALSE)
 # Update only a specific package (the same as install)
 install.packages("plotly")
 ```
-
-#### 
 
 #### Installing packages with conda
 
