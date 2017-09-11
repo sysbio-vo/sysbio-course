@@ -554,7 +554,7 @@ We also have new file in our folder:
 
 Now, let's modify Snakefile, so it will process both A and B files. By default snakemake executes the first rule in the snakefile. This gives rise to pseudo-rules at the beginning of the file that can be used to define build-targets similar to GNU Make. So, in a way in the `all` rule we request all the output files to be present, and Snakemake recognizes automatically that these can be created by multiple applications of the rule `sort`:
 
-```
+```bash
 (ngschool) aln@aln-vb:~/snake_test$ cat Snakefile 
 DATASETS = ["A", "B"]
 
@@ -573,7 +573,7 @@ rule sort:
 
 Try to execute snakemake again, you will see following:
 
-```
+```bash
 (ngschool) aln@aln-vb:~/snake_test$ snakemake
 Provided cores: 1
 Rules claiming more threads will be scaled down.
@@ -602,7 +602,7 @@ Finished job 0.
 
 But what is peculiar about this output? Rule `sort` sorted only B file, right? That's because we already sorted A and we have A output already in our folder. We can force all tasks execution and see if the output is different:
 
-```
+```bash
 (ngschool) aln@aln-vb:~/snake_test$ snakemake -F
 Provided cores: 1
 Rules claiming more threads will be scaled down.
@@ -642,7 +642,27 @@ So, now we see that `sort` processed both A and B files.
 
 > NB: `-f` flag will force execute firth rule regardless of the output, and `-F` will force execute all the rules.
 
+Some more useful commands:
 
+```bash
+# execute the workflow with target A.sorted.txt
+snakemake A.sorted.txt
+
+# dry-run
+snakemake -n
+ 
+# dry-run, print shell commands
+snakemake -n -p
+ 
+# dry-run, print execution reason for each job
+snakemake -n -r
+```
+
+Amazing feature of the snakemake is pipeline diagram plotting:
+
+```bash
+snakemake --dag | dot -Tsvg > dag.svg
+```
 
 
 
