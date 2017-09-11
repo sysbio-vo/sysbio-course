@@ -202,7 +202,7 @@ sudo apt-get install libjpeg62
 
 #### Installing R packages
 
-> **NB: **It will save you a lot of pain if you install all the packages in the local folder even on your personal computer, this way you can easily install and update packages using RStudio graphical interface or install latest packages not available for your distribution. Starting from Jun 2017 though, you need to uncomment following line and specify your local lib path in the config file \(previously R did it interactively\).
+> **NB: **It will save you a lot of pain if you install all the packages in the local folder even on your personal computer, this way you can easily install and update packages using RStudio graphical interface or install latest packages not available for your distribution. [Starting from R 3.4](https://knausb.github.io/2017/07/r-3.4.1-personal-library-location/) \(Jun 2017\) though, you need to uncomment following line and specify your local lib path in the config file \(previously R did it interactively\). If you don't have root access, just create new file "~/.Renviron" and put the R\_LIBS\_USER variable there.
 
 ```bash
 aln@notik:/$ cat /etc/R/Renviron
@@ -226,7 +226,7 @@ biocLite("Rsubread")
 
 Or using default functions:
 
-```
+```bash
 # Check installed packages
 installed.packages()
 # Install specific package
@@ -238,6 +238,16 @@ update.packages(ask = FALSE)
 # Update only a specific package (the same as install)
 install.packages("plotly")
 ```
+
+Let's try to install XML package in R \(or RStudio\):
+
+```bash
+install.packages("XML")
+```
+
+
+
+
 
 #### Installing packages with conda
 
