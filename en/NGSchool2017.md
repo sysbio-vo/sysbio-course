@@ -650,10 +650,10 @@ snakemake A.sorted.txt
 
 # dry-run
 snakemake -n
- 
+
 # dry-run, print shell commands
 snakemake -n -p
- 
+
 # dry-run, print execution reason for each job
 snakemake -n -r
 ```
@@ -661,6 +661,7 @@ snakemake -n -r
 Amazing feature of the snakemake is pipeline diagram plotting:
 
 ```bash
+conda install Graphviz
 snakemake --dag | dot -Tsvg > dag.svg
 ```
 
