@@ -326,6 +326,8 @@ conda install fastqc
 conda list
 ```
 
+You will see that there are multiple versions of fastqc with the same version number. The reason for that is different builds of packages with otherwise identical names and versions, where build number is non-negative integer.
+
 But sometimes you have to install the software of an older version, because you need to reproduce the particular environment \(e.g. in case you do the benchmarking of some algorithms\). Lets create new environment and play with versions a little bit.
 
 ```bash
@@ -345,10 +347,11 @@ root                     /home/aln/miniconda3
 
 > **NB:** By default there is also root environment, if you have many concurrent tasks/projects better to separate different logic between environments, so you can easily deploy needed env somewhere else without installing unnecessary stuff.
 
-Activate new env:
+Activate new env and install particular fastqc version:
 
 ```
 source activate old
+conda install fastqc=0.11.4
 ```
 
 
