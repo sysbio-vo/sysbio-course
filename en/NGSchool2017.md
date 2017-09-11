@@ -364,5 +364,5 @@ conda remove --name old fastqc
 conda remove --name old --all
 ```
 
-
+Not all the package are available from conda repos, but you cad install more with pip \(stands for "Pip Installs Packages"\) package management system, which is used to install and manage software packages written in Python.
 
