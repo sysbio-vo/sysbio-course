@@ -595,5 +595,43 @@ Finished job 0.
 2 of 2 steps (100%) done
 ```
 
-But what is peculiar about this output? Rule `sort` sorted only B file, right? That's because we already sorted A and we have A output already in our folder, so \`
+But what is peculiar about this output? Rule `sort` sorted only B file, right? That's because we already sorted A and we have A output already in our folder. We can force all tasks execution and see if the output is different:
+
+```
+(ngschool) aln@aln-vb:~/snake_test$ snakemake -F
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	2	sort
+	3
+
+rule sort:
+    input: B.txt
+    output: B.sorted.txt
+    jobid: 2
+    wildcards: dataset=B
+
+Finished job 2.
+1 of 3 steps (33%) done
+
+rule sort:
+    input: A.txt
+    output: A.sorted.txt
+    jobid: 1
+    wildcards: dataset=A
+
+Finished job 1.
+2 of 3 steps (67%) done
+
+localrule all:
+    input: A.sorted.txt, B.sorted.txt
+    jobid: 0
+
+Finished job 0.
+3 of 3 steps (100%) done
+```
+
+So, now we see that `sort` processed both A and B files.
 
