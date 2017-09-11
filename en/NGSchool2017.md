@@ -486,24 +486,21 @@ Let's start with very basic example - sorting some files.
 ```bash
 mkdir snake_test
 cd snake_test
-# Following lines create two files with numbers randomly generated in a range from 1 to 10
-python -c $'import random\nfor i in range(1,10): print(random.randint(1,10))' > A.txt
-python -c $'import random\nfor i in range(1,10): print(random.randint(1,10))' > B.txt
+# Following lines create two files with numbers randomly generated
+# in a range from 1 to 10
+python -c $'import random\nfor i in range(5): print(random.randint(1,10))' > A.txt
+python -c $'import random\nfor i in range(5): print(random.randint(1,10))' > B.txt
 ```
 
 The content of the A.txt:
 
 ```bash
 (ngschool) aln@aln-vb:~/snake_test$ cat A.txt 
-1
-2
-9
-10
 7
-8
-9
-4
-4
+10
+6
+6
+2
 ```
 
 Create the file names `Snakefile` with the following content:
@@ -526,9 +523,9 @@ If you run snakemake you should see following:
 Provided cores: 1
 Rules claiming more threads will be scaled down.
 Job counts:
-	count	jobs
-	1	sort
-	1
+    count    jobs
+    1    sort
+    1
 
 rule sort:
     input: A.txt
@@ -543,14 +540,10 @@ We also have new file in our folder:
 
 ```bash
 (ngschool) aln@aln-vb:~/snake_test$ cat A.sorted.txt 
-1
 2
-4
-4
+6
+6
 7
-8
-9
-9
 10
 ```
 
