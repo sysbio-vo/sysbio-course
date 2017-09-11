@@ -366,6 +366,7 @@ How to remove particular package or environment:
 conda remove --name test fastqc
 # Remove environment test entirely
 conda remove --name test --all
+conda info --envs
 ```
 
 If you are not sure in which channel the package is exactly, you can look up on [http://anaconda.org](http://anaconda.org/) and install using following command without adding particular channel:
@@ -395,9 +396,40 @@ For the particular packages update use:
 conda update fastqc
 ```
 
+Very important function is exporting env file and creating new env based on that:
+
+```bash
+source activate ngschool
+conda env export > ngschool.yml
+```
+
+Check the content of the file:
+
+```bash
+(ngschool) aln@aln-vb:~$ cat ngschool.yml 
+name: ngschool
+channels:
+- bioconda
+- conda-forge
+- defaults
+dependencies:
+- htop=2.0.2=0
+- ncurses=5.9=10
+prefix: /home/aln/miniconda3/envs/ngschool
+
+```
+
+You can see that the environment description file structure if very simple, you can create such file from scratch without exporting. Lets environment name and try to create new env based on edited file:
 
 
 
+```
+mv ngschool.yml test.yml
+# Edit with nano, when you're done press CTRL+X, then 'Y'
+nano test.yml
+
+conda env create -f ngschool.yml
+```
 
 Finally you can deactivate environment using:
 
