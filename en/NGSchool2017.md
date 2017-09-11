@@ -506,10 +506,10 @@ The content of the A.txt:
 4
 ```
 
-Create the file names `Snakemake` with the following content:
+Create the file names `Snakefile` with the following content:
 
 ```bash
-(ngschool) aln@aln-vb:~/snake_test$ cat Snakemake 
+(ngschool) aln@aln-vb:~/snake_test$ cat Snakefile
 rule sort:
     input:
         "A.txt"
@@ -517,7 +517,41 @@ rule sort:
         "A.sorted.txt"
     shell:
         "sort -n {input} > {output}"
+```
 
+If you run snakemake you should see following:
+
+```bash
+(ngschool) aln@aln-vb:~/snake_test$ snakemake
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	sort
+	1
+
+rule sort:
+    input: A.txt
+    output: A.sorted.txt
+    jobid: 0
+
+Finished job 0.
+1 of 1 steps (100%) done
+```
+
+We also have new file in our folder:
+
+```bash
+(ngschool) aln@aln-vb:~/snake_test$ cat A.sorted.txt 
+1
+2
+4
+4
+7
+8
+9
+9
+10
 ```
 
 
