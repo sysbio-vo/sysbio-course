@@ -352,6 +352,16 @@ Activate new env and install particular fastqc version:
 ```bash
 source activate old
 conda install fastqc=0.11.4
+conda list
+```
+
+How to remove particular package or environment:
+
+```
+# Remove package fastqc from environment old
+conda remove --name old fastqc
+# Remove environment old entirely
+conda remove --name old --all
 ```
 
 
