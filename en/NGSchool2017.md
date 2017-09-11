@@ -332,7 +332,7 @@ But sometimes you have to install the software of an older version, because you 
 conda create --name old
 ```
 
-You can check what envs do you have. Note that by default there is also root environment, if you have many concurrent tasks/projects better to separate different logic between environments, so you can easily deploy needed env somewhere else without installing unnecessary stuff.
+You can check what envs do you have:
 
 ```bash
 (ngschool) aln@aln-vb:~$ conda info --envs
@@ -342,6 +342,8 @@ ngschool              *  /home/aln/miniconda3/envs/ngschool
 old                      /home/aln/miniconda3/envs/old
 root                     /home/aln/miniconda3
 ```
+
+> **NB:** By default there is also root environment, if you have many concurrent tasks/projects better to separate different logic between environments, so you can easily deploy needed env somewhere else without installing unnecessary stuff.
 
 
 
