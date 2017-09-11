@@ -474,7 +474,7 @@ If you are inside conda environment and didn't mess up anything the packages wil
 
 #### Writing pipelines with SnakeMake
 
-There is excellent [presentation ](http://slides.com/johanneskoester/deck-1#/)made by snakemake authors, which you should follow, since the code below closely follows it. Official [tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html) follows more advanced example.
+There is excellent [presentation](http://slides.com/johanneskoester/deck-1#/) made by snakemake authors, which you should follow, since the code below closely follows it. Official [tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html) follows more advanced example.
 
 First, install SnakeMake
 
@@ -660,7 +660,8 @@ snakemake --dag | dot -Tsvg > dag.svg
 eog dag.svg
 ```
 
-![]("https://sysbio-vo.gitbooks.io/sysbio-course/content/en/assets/dag.png")
+![](images/dag.svg)
+
 
 How about some parallelization?
 
