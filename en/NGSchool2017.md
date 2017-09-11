@@ -357,12 +357,18 @@ conda list
 
 How to remove particular package or environment:
 
-```
+```bash
 # Remove package fastqc from environment old
 conda remove --name old fastqc
 # Remove environment old entirely
 conda remove --name old --all
 ```
 
-Not all the package are available from conda repos, but you cad install more with pip \(stands for "Pip Installs Packages"\) package management system, which is used to install and manage software packages written in Python.
+Not all the package are available from conda repos, but you cad install more with pip \(stands for "Pip Installs Packages"\) package management system, which is used to install and manage software packages written in Python. Pip comes together with Miniconda, it cannot manage envs and so on, it will just install the package into current conda env.
+
+```bash
+ pip install see
+```
+
+
 
