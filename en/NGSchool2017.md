@@ -640,3 +640,9 @@ Finished job 0.
 
 So, now we see that `sort` processed both A and B files.
 
+> NB: `-f` flag will force execute firth rule regardless of the output, and `-F` will force execute all the rules.
+
+
+
+
+
