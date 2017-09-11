@@ -602,10 +602,10 @@ But what is peculiar about this output? Rule `sort` sorted only B file, right? T
 Provided cores: 1
 Rules claiming more threads will be scaled down.
 Job counts:
-	count	jobs
-	1	all
-	2	sort
-	3
+    count    jobs
+    1    all
+    2    sort
+    3
 
 rule sort:
     input: B.txt
@@ -634,4 +634,6 @@ Finished job 0.
 ```
 
 So, now we see that `sort` processed both A and B files.
+
+
 
