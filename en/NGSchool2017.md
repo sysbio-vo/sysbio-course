@@ -466,7 +466,7 @@ conda install r-base -c conda-forge
 
 Within R run:
 
-```
+```bash
 install.packages("ggplot2")
 ```
 
@@ -660,7 +660,7 @@ snakemake --dag | dot -Tsvg > dag.svg
 eog dag.svg
 ```
 
-![](assets/dag.png)
+![]("https://sysbio-vo.gitbooks.io/sysbio-course/content/en/assets/dag.png")
 
 How about some parallelization?
 
