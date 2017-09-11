@@ -305,6 +305,7 @@ Then we create and activate separate environment called 'ngschool':
 conda create --name ngschool
 ls ~/miniconda3/envs/
 source activate ngschool
+python --version
 ```
 
 After activating the environment you will see its name in the beginning of the prompt line. Lets check if we have anything installed:
@@ -328,10 +329,10 @@ conda list
 
 You will see that there are multiple versions of fastqc with the same version number. The reason for that is [different builds of packages](https://conda.io/docs/user-guide/tasks/build-packages/package-spec.html) with otherwise identical names and versions, where build number is non-negative integer.
 
-But sometimes you have to install the software of an older version, because you need to reproduce the particular environment \(e.g. in case you do the benchmarking of some algorithms\). Lets create new environment and play with versions a little bit.
+But sometimes you have to install the software of an older version, because you need to reproduce the particular environment \(e.g. in case you do the benchmarking of some algorithms\). On top of that you might require different python version. Lets create new environment and play with versions a little bit.
 
 ```bash
-conda create --name old
+conda create --name test python=2
 ```
 
 You can check what envs do you have:
@@ -341,7 +342,7 @@ You can check what envs do you have:
 # conda environments:
 #
 ngschool              *  /home/aln/miniconda3/envs/ngschool
-old                      /home/aln/miniconda3/envs/old
+test                     /home/aln/miniconda3/envs/old
 root                     /home/aln/miniconda3
 ```
 
@@ -350,9 +351,10 @@ root                     /home/aln/miniconda3
 Activate new env and install particular fastqc version:
 
 ```bash
-source activate old
+source activate test
 conda install fastqc=0.11.4
 conda list
+python --version
 ```
 
 How to remove particular package or environment:
@@ -362,6 +364,12 @@ How to remove particular package or environment:
 conda remove --name old fastqc
 # Remove environment old entirely
 conda remove --name old --all
+```
+
+If you are not sure in which channel the package is exactly, you can look up on [http://anaconda.org](http://anaconda.org/) and install using following command without adding particular channel:
+
+```bash
+conda install --channel https://conda.anaconda.org/pandas bottleneck
 ```
 
 Not all the package are available from conda repos, but you cad install more with pip \(stands for "Pip Installs Packages"\) package management system, which is used to install and manage software packages written in Python. Pip comes together with Miniconda, it cannot manage envs and so on, it will just install the package into current conda env.
