@@ -552,11 +552,11 @@ Now, let's modify Snakefile, so it will process both A and B files. By default s
 ```
 (ngschool) aln@aln-vb:~/snake_test$ cat Snakefile 
 DATASETS = ["A", "B"]
- 
+
 rule all:
     input:
         expand("{dataset}.sorted.txt", dataset=DATASETS)
- 
+
 rule sort:
     input:
         "{dataset}.txt"
@@ -564,8 +564,36 @@ rule sort:
         "{dataset}.sorted.txt"
     shell:
         "sort -n {input} > {output}"
-(ngschool) aln@aln-vb:~/snake_test$ 
 ```
 
+Try to execute snakemake again, you will see following:
 
+```
+(ngschool) aln@aln-vb:~/snake_test$ snakemake
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	sort
+	2
+
+rule sort:
+    input: B.txt
+    output: B.sorted.txt
+    jobid: 2
+    wildcards: dataset=B
+
+Finished job 2.
+1 of 2 steps (50%) done
+
+localrule all:
+    input: A.sorted.txt, B.sorted.txt
+    jobid: 0
+
+Finished job 0.
+2 of 2 steps (100%) done
+```
+
+But what is peculiar about 
 
