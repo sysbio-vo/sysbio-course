@@ -325,6 +325,8 @@ conda info fastqc
 conda install fastqc
 # Check the list again
 conda list
+# Alternatively you can specify env name, so you can check packages installed in one env, while being in other
+conda list -n ngschool
 ```
 
 You will see that there are multiple versions of fastqc with the same version number. The reason for that is [different builds of packages](https://conda.io/docs/user-guide/tasks/build-packages/package-spec.html) with otherwise identical names and versions, where build number is non-negative integer.
@@ -382,10 +384,25 @@ Not all the package are available from conda repos, but you cad install more wit
 
 If you need to update conda use the command below, it also tells you about other packages that will be automatically updated or changed with the update.
 
-```
+```bash
 conda --version
 conda update conda
+```
 
+For the particular packages update use:
+
+```bash
+conda update fastqc
+```
+
+
+
+
+
+Finally you can deactivate environment using:
+
+```bash
+source deactivate
 ```
 
 
