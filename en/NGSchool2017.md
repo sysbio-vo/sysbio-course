@@ -547,7 +547,7 @@ We also have new file in our folder:
 10
 ```
 
-Now, let's modify Snakefile, so it will process both A and B files. By default snakemake executes the first rule in the snakefile. This gives rise to pseudo-rules at the beginning of the file that can be used to define build-targets similar to GNU Make. So, in a way in the `all` rule we request all the output files to be present:
+Now, let's modify Snakefile, so it will process both A and B files. By default snakemake executes the first rule in the snakefile. This gives rise to pseudo-rules at the beginning of the file that can be used to define build-targets similar to GNU Make. So, in a way in the `all` rule we request all the output files to be present, and Snakemake recognizes automatically that these can be created by multiple applications of the rule `sort`:
 
 ```
 (ngschool) aln@aln-vb:~/snake_test$ cat Snakefile 
@@ -573,10 +573,10 @@ Try to execute snakemake again, you will see following:
 Provided cores: 1
 Rules claiming more threads will be scaled down.
 Job counts:
-	count	jobs
-	1	all
-	1	sort
-	2
+    count    jobs
+    1    all
+    1    sort
+    2
 
 rule sort:
     input: B.txt
@@ -595,5 +595,5 @@ Finished job 0.
 2 of 2 steps (100%) done
 ```
 
-But what is peculiar about 
+But what is peculiar about this output? Rule `sort` sorted only B file, right? That's because we already sorted A and we have A output already in our folder, so \`
 
