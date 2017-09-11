@@ -292,10 +292,17 @@ There is very nice [tutorial](https://conda.io/docs/user-guide/getting-started.h
 
 First, we need to add some channels, or repositories with software binaries:
 
-```
+```bash
 conda config --add channels defaults
 conda config --add channels conda-forge
 conda config --add channels bioconda
+```
+
+Then we create and activate separate environment called 'ngschool':
+
+```bash
+conda create --name ngschool
+source activate ngschool
 ```
 
 
