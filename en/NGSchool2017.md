@@ -290,12 +290,13 @@ chmod u+x Miniconda3-latest-Linux-x86_64.sh
 
 There is very nice [tutorial](https://conda.io/docs/user-guide/getting-started.html) from conda site, it is highly recommended to read it all, here we will briefly overview the most important things.
 
-First, we need to add some channels, or repositories with software binaries:
+First, we need to add some channels, or repositories with software binaries. With info command we can see brief data on the conda install:
 
 ```bash
 conda config --add channels defaults
 conda config --add channels conda-forge
 conda config --add channels bioconda
+conda info
 ```
 
 Then we create and activate separate environment called 'ngschool':
@@ -306,7 +307,17 @@ ls ~/miniconda3/envs/
 source activate ngschool
 ```
 
+After activating the environment you will see its name in the beginning of the prompt line. Lets check if we have anything installed:
 
+```
+conda list
+```
+
+Obviously, the environment is empty. We need to install our first application:
+
+```
+conda search fastqc
+```
 
 
 
