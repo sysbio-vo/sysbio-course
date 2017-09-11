@@ -443,7 +443,23 @@ source deactivate
 
 ##### Conda and R
 
-sdf
+> NB: Don't blindly run following commands, too easy to ruin everything!!!
 
-asdf
+The official conda manual suggests following commands:
 
+```bash
+# Install number of R packages together with r-base
+conda install r-essentials
+# Update
+conda update r-essentials
+# Update particular R package
+conda update r-plyr
+```
+
+However, better way is to install latest r-base, specify custom folder for installing R packages in local folder without root access and use inbuilt R functions for install and update \(or with Bioconductor BiocLite\).
+
+
+```bash
+conda search r-base
+conda install r-base -c conda-forge
+```
