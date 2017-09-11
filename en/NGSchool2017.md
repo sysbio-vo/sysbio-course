@@ -672,11 +672,11 @@ How about some parallelization?
 ```bash
 (ngschool) aln@aln-vb:~/snake_test$ cat Snakefile 
 DATASETS = ["A", "B"]
- 
+
 rule all:
     input:
         expand("{dataset}.sorted.txt", dataset=DATASETS)
- 
+
 rule sort:
     input:
         "{dataset}.txt"
@@ -700,5 +700,5 @@ snakemake --prioritize A.sorted.txt --cores 8
 snakemake --cores 8 --resources mem_mb=100
 ```
 
-
+Finally, we would want to read the input list from external file as the current design is not customizable enough.
 
