@@ -685,7 +685,7 @@ rule sort:
 
 Then we can start snakemake with the following parameters:
 
-```
+```bash
 # Execute the workflow with 8 cores
 snakemake --cores 8
 # Prioritize the creation of a certain file
@@ -697,7 +697,7 @@ snakemake --cores 8 --resources mem_mb=100
 
 Finally, we would want to read the input list from external file as the current design is not customizable enough. First, create config file:
 
-```
+```bash
 (ngschool) aln@aln-vb:~/snake_test$ cat config.yaml 
 datasets:
     A: A.txt
@@ -706,7 +706,7 @@ datasets:
 
 Then edit your `Snakefile` in a following way:
 
-```
+```bash
 (ngschool) aln@aln-vb:~/snake_test$ cat Snakefile 
 configfile: "config.yaml"
 
@@ -727,7 +727,7 @@ rule sort:
 
 And last, install pyyaml package and run snakemake:
 
-```
+```bash
 pip install pyyaml
 snakemake -F
 ```
