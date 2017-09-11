@@ -278,7 +278,7 @@ Remember this case as it is one of the most typical troubles newbies encounter w
 
 #### Installing packages with conda
 
-sfasdf
+Using shared computation resources will mean that you don't have root access, so we need smth flexible and easy to deal with, which allows to transfer our configured environment from host to host easily. [Conda](https://conda.io/) is a popular solution on that regards.
 
-asdfasd
+
 
