@@ -309,15 +309,24 @@ source activate ngschool
 
 After activating the environment you will see its name in the beginning of the prompt line. Lets check if we have anything installed:
 
-```
+```bash
 conda list
 ```
 
 Obviously, the environment is empty. We need to install our first application:
 
-```
+```bash
+# Try to check if there is a package with particular name
 conda search fastqc
+# More detailed package info
+conda info fastqc
+# Install the package
+conda install fastqc
+# Check the list again
+conda list
 ```
+
+
 
 
 
