@@ -302,8 +302,11 @@ Then we create and activate separate environment called 'ngschool':
 
 ```bash
 conda create --name ngschool
+ls ~/miniconda3/envs/
 source activate ngschool
 ```
+
+
 
 
 
