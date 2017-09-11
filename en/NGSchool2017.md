@@ -258,11 +258,23 @@ Warning in install.packages :
 
 But what is wrong? R cannot install dependencies? It should. It happens that R XML package requires XML dev Ubuntu package, so the right way would be to install R XML using Ubuntu package manager \(don't execute the line yet\):
 
-```
+```bash
 sudo apt-get install r-cran-xml
 ```
 
-However, 
+However, not all the R packages can be installed using apt-get, so we can simply install XLM dev \(in Ubuntu command line!\):
+
+```bash
+sudo apt-get install libxml2-dev
+```
+
+And try to install XML within R again:
+
+```bash
+install.packages("XML")
+```
+
+Remember this case as it is one of the most typical troubles newbies encounter when dealing with R packages.
 
 #### Installing packages with conda
 
