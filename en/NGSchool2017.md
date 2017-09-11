@@ -288,7 +288,7 @@ chmod u+x Miniconda3-latest-Linux-x86_64.sh
 ./Miniconda3-latest-Linux-x86_64.sh
 ```
 
-There is very nice [tutorial](https://conda.io/docs/user-guide/getting-started.html) from conda site, it is highly recommended to read it all, here we will briefly overview the most important things.
+There is very nice [tutorial](https://conda.io/docs/user-guide/getting-started.html) from conda site, it is highly recommended to read it all, here we will briefly overview the most important things. Don't forget about [cheat sheet](https://conda.io/docs/_downloads/conda-cheatsheet.pdf), it will help you to memorize the commands!
 
 First, we need to add some channels, or repositories with software binaries. With info command we can see brief data on the conda install:
 
@@ -344,6 +344,12 @@ root                     /home/aln/miniconda3
 ```
 
 > **NB:** By default there is also root environment, if you have many concurrent tasks/projects better to separate different logic between environments, so you can easily deploy needed env somewhere else without installing unnecessary stuff.
+
+Activate new env:
+
+```
+source activate old
+```
 
 
 
