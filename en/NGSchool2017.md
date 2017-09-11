@@ -479,6 +479,8 @@ If you are inside conda environment and didn't mess up anything the packages wil
 
 #### Writing pipelines with SnakeMake
 
+There is excellent [presentation ](http://slides.com/johanneskoester/deck-1#/)made by snakemake authors, which you should follow, since the code below closely follows it. Official [tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html) follows more advanced example.
+
 First, install SnakeMake
 
 ```bash
@@ -665,5 +667,38 @@ eog dag.svg
 
 ![](/assets/dag.svg)
 
-kh
+How about some parallelization?
+
+```bash
+(ngschool) aln@aln-vb:~/snake_test$ cat Snakefile 
+DATASETS = ["A", "B"]
+ 
+rule all:
+    input:
+        expand("{dataset}.sorted.txt", dataset=DATASETS)
+ 
+rule sort:
+    input:
+        "{dataset}.txt"
+    output:
+        "{dataset}.sorted.txt"
+    threads: 4
+    resources: mem_mb=100
+    shell:
+        "sort --parallel {threads} {input} > {output}"
+```
+
+Then we can start snakemake with the following parameters:
+
+```
+# Execute the workflow with 8 cores
+snakemake --cores 8
+# Prioritize the creation of a certain file
+snakemake --prioritize A.sorted.txt --cores 8
+# Execute the workflow with 8 cores and 100MB memory.
+# Will execute only one job at a time, since in the Snakefile we set memory limit.
+snakemake --cores 8 --resources mem_mb=100
+```
+
+
 
