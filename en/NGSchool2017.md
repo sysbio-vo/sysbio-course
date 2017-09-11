@@ -282,32 +282,11 @@ Using shared computation resources will mean that you don't have root access, so
 
 Let's start with installing [Miniconda](https://conda.io/miniconda.html) \(contains the conda package manager and Python\):
 
-```
+```bash
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-
+chmod u+x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
