@@ -660,7 +660,7 @@ snakemake --dag | dot -Tsvg > dag.svg
 eog dag.svg
 ```
 
-![](/assets/dag.svg)
+![](/assets/dag.png)
 
 How about some parallelization?
 
