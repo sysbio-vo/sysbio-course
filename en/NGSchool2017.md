@@ -1,8 +1,3 @@
-
----
-
----
-
 ### Contents
 
 * [Basic commands to deal with packages in Ubuntu](#basic-commands-to-deal-with-packages-in-ubuntu)
@@ -700,5 +695,42 @@ snakemake --prioritize A.sorted.txt --cores 8
 snakemake --cores 8 --resources mem_mb=100
 ```
 
-Finally, we would want to read the input list from external file as the current design is not customizable enough.
+Finally, we would want to read the input list from external file as the current design is not customizable enough. First, create config file:
+
+```
+(ngschool) aln@aln-vb:~/snake_test$ cat config.yaml 
+datasets:
+    A: A.txt
+    B: B.txt
+```
+
+Then edit your `Snakefile` in a following way:
+
+```
+(ngschool) aln@aln-vb:~/snake_test$ cat Snakefile 
+configfile: "config.yaml"
+
+rule all:
+    input:
+        expand("{dataset}.sorted.txt", dataset=config["datasets"])
+ 
+rule sort:
+    input:
+        "{dataset}.txt"
+    output:
+        "{dataset}.sorted.txt"
+    threads: 4
+    resources: mem_mb=100
+    shell:
+        "sort --parallel {threads} {input} > {output}"
+```
+
+And last, install pyyaml package and run snakemake:
+
+```
+pip install pyyaml
+snakemake -F
+```
+
+
 
