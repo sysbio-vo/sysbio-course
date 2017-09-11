@@ -12,6 +12,8 @@ Assuming you start with clean Ubuntu 16.04.
 
 > **NB: **If you use VirtualBox and want to enable copy-paste between host and virtual machine, you need to download and install VirtualBox Guest Additions from Devices menu. After that reboot and click Devices -&gt; Shared Clipboard -&gt; Bidirectional.
 
+First, we need to update packages metadata from Ubuntu repositories and upgrade packages to newer versions.
+
 ```bash
 sudo apt-get update
 sudo apt-get upgrade
@@ -50,7 +52,7 @@ apt-cache search r | grep statistic
 sudo apt-get install r-base-core r-recommended
 ```
 
-> **NB: **Always use **sudo** over **su**: only particular command will run as super-user; you will be asked for your password, so you can think twice before executing; attempts to invoke sudo can be logged.
+> **NB: **Always use **sudo** over **su**: only particular command will run in super-user mode; you will be asked for your password, so you can think twice before executing; attempts to invoke sudo can be logged.
 
 Let's run R:
 
@@ -66,13 +68,13 @@ Platform: x86_64-pc-linux-gnu (64-bit)
 >
 ```
 
-Wait, but we need the latest version, which is 3.4, why do we have 3.2 \(it can happen with many packages and versions\)? Didn't we update the system properly? Let's check the metadata of the package within Ubuntu repository:
+Wait, but we need the latest version, which is 3.4, why do we have 3.2? Didn't we update the system properly? Let's check the metadata of the package within Ubuntu repository:
 
 ```bash
 apt-cache show r-base
 ```
 
-We can also look at the version table as well:
+We can also look at the version table as well \(shows if a package is installed and to which repository it belongs to\):
 
 ```bash
 apt-cache policy r-base
@@ -80,14 +82,14 @@ apt-cache policy r-base
 
 > **NB:** If you want to know more about apt-cache command, just run it in the console without any parameters
 
-After googling we found out that default Ubuntu repository does not contain the most fresh R distribution, as packages are updated gradually when some time passes after package authors updates it. We are suggested to add custom repository, which contains fresh R:
+After googling we found out that default Ubuntu repository does not contain the most fresh R distribution, as packages are updated gradually when some time passes after package authors updates it \(it can happen with many packages, especially actively developed ones\). We are suggested to add custom repository, which contains fresh R:
 
 ```bash
 sudo add-apt-repository ppa:marutter/rrutter
 sudo apt-get update
 ```
 
-asdf
+Now after packages metadata update we see that we can upgrade smth:
 
 ```bash
 19 packages can be upgraded. Run 'apt list --upgradable' to see them.
@@ -104,7 +106,7 @@ Finally we can initiate upgrade with our usual command:
 sudo apt-get upgrade
 ```
 
-But where is this repo stored we added? Try to examine the following folder:
+But where is the repo we just added stored? Try to examine the following folder:
 
 ```bash
 ls /etc/apt/
@@ -119,32 +121,57 @@ deb http://ppa.launchpad.net/marutter/rrutter/ubuntu xenial main
 # deb-src http://ppa.launchpad.net/marutter/rrutter/ubuntu xenial main
 ```
 
-Following command will remove the binaries, but not the configuration or data files of the package, and  will leave dependencies untouched.
+More package install related command.
+
+Following command will remove the binaries, but not the configuration or data files of the package, and will leave dependencies untouched.
 
 ```bash
 sudo apt-get remove r-base
 ```
 
-will remove about\_everything \_regarding the package`packagename`, but not the dependencies installed with it on installation. Both commands are equivalent. Particularly useful when you want to 'start all over' with an application because you messed up the configuration. However, it does not remove configuration or data files residing in users home directories, usually in hidden folders there. There is no easy way to get those removed as well.
+This command remove everything regarding the package, but not the dependencies installed with it. Both commands are equivalent. Particularly useful when you want to 'start all over' with an application because you messed up the configuration. However, it does not remove configuration or data files residing in users home directories, usually in hidden folders, which in most cases you will have to remove yourself.
 
 ```bash
-apt-get purge packagename
+sudo apt-get purge r-base
+sudo apt-get remove --purge r-base
 ```
 
-removes orphaned packages, i.e. installed packages that used to be installed as an dependency, but aren't any longer. Use this after removing a package which had installed dependencies you're no longer interested in.
+Following command removes orphaned packages, i.e. packages that were installed as an dependency. Use this after removing a package which had installed dependencies you're no longer interested in.
 
 ```bash
 apt-get autoremove
 ```
 
-> **NB: **Danger of using autoremove
+> **NB: **You can accidentally remove important package, which will cause a lot of orphaned packages, don't be in a hurry to use autoremove, try to think why you suddenly have a lot of candidates
 
-
-
-In case smth went wrong:
+In case smth went wrong the following command attempts to correct a system with broken dependencies in place:
 
 ```
 sudo apt-get -f install
+```
+
+If you want to get an idea of what an action will do use simulate flas:
+
+```
+sudo apt-get install -s r-base
+```
+
+Autoconfirm your choices with "yes" answer:
+
+```
+sudo apt-get remove -y r-base
+```
+
+Download, but not install:
+
+```
+sudo apt-get install -d r-base
+```
+
+Suppress all the output:
+
+```
+sudo apt-get remove -qq r-base
 ```
 
 
