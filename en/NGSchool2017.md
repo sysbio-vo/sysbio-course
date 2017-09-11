@@ -325,7 +325,7 @@ conda info fastqc
 conda install fastqc
 # Check the list again
 conda list
-# Alternatively you can specify env name, so you can check packages installed in one env, while being in other
+# Alternatively you can specify (any) env name
 conda list -n ngschool
 ```
 
@@ -416,19 +416,24 @@ dependencies:
 - htop=2.0.2=0
 - ncurses=5.9=10
 prefix: /home/aln/miniconda3/envs/ngschool
-
 ```
 
 You can see that the environment description file structure if very simple, you can create such file from scratch without exporting. Lets environment name and try to create new env based on edited file:
 
-
-
-```
+```bash
 mv ngschool.yml test.yml
 # Edit with nano, when you're done press CTRL+X, then 'Y'
 nano test.yml
+# Remember that we deleted test env previously
+conda env create -f test.yml
+# List all the anvs
+conda info --envs
+```
 
-conda env create -f ngschool.yml
+This way you can easily copy \*.yml file on another computer and create identical environment as on your initial host. But if you need to clone the env within the same computer the following command is useful:
+
+```bash
+conda create --name clone --clone ngschool
 ```
 
 Finally you can deactivate environment using:
