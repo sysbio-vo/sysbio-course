@@ -1,10 +1,9 @@
 ### Contents
 
-[Basic commands to deal with packages in Ubuntu](#basic-commands-to-deal-with-packages-in-ubuntu)
-
-[Installing R packages](#installing-r-packages)
-
-[Installing packages with conda](#installing-packages-with-conda)
+* [Basic commands to deal with packages in Ubuntu](#basic-commands-to-deal-with-packages-in-ubuntu)
+* [Installing R packages](#installing-r-packages)
+* [Installing packages with conda](#installing-packages-with-conda)
+  * [Conda and R](#conda-and-r)
 
 #### Basic commands to deal with packages in Ubuntu
 
@@ -442,5 +441,9 @@ Finally you can deactivate environment using:
 source deactivate
 ```
 
+##### Conda and R
 
+sdf
+
+asdf
 
