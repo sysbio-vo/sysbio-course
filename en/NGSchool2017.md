@@ -456,12 +456,18 @@ conda update r-essentials
 conda update r-plyr
 ```
 
-However, better way is to install latest r-base, specify custom folder for installing R packages in local folder without root access and use inbuilt R functions for install and update \(or with Bioconductor BiocLite\).
+However, better way is to install latest r-base and use inbuilt R functions for install and update \(or with Bioconductor BiocLite\).
 
 ```bash
 conda search r-base
 conda install r-base -c conda-forge
 ```
 
+Within R run:
 
+```
+install.packages("ggplot2")
+```
+
+If you are inside conda environment and didn't mess up anything the packages will be installed into `~/miniconda3/envs/clone/lib/R/library`. So you will have perfect separation of environments.
 
