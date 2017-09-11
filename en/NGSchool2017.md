@@ -245,9 +245,24 @@ Let's try to install XML package in R \(or RStudio\):
 install.packages("XML")
 ```
 
+Well, we've got an error:
 
+```bash
+checking for xml2-config... no
+Cannot find xml2-config
+ERROR: configuration failed for package ‘XML’
+* removing ‘/home/aln/R/x86_64-pc-linux-gnu-library/3.2/XML’
+Warning in install.packages :
+  installation of package ‘XML’ had non-zero exit status
+```
 
+But what is wrong? R cannot install dependencies? It should. It happens that R XML package requires XML dev Ubuntu package, so the right way would be to install R XML using Ubuntu package manager \(don't execute the line yet\):
 
+```
+sudo apt-get install r-cran-xml
+```
+
+However, 
 
 #### Installing packages with conda
 
