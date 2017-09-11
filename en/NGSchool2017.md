@@ -326,11 +326,27 @@ conda install fastqc
 conda list
 ```
 
+But sometimes you have to install the software of an older version, because you need to reproduce the particular environment \(e.g. in case you do the benchmarking of some algorithms\). Lets create new environment and play with versions a little bit.
 
+```bash
+conda create --name old
+```
+
+You can check what envs do you have now:
+
+```bash
+(ngschool) aln@aln-vb:~$ conda info --envs
+# conda environments:
+#
+ngschool              *  /home/aln/miniconda3/envs/ngschool
+old                      /home/aln/miniconda3/envs/old
+root                     /home/aln/miniconda3
 
 ```
-conda environments
-```
+
+
+
+
 
 
 
