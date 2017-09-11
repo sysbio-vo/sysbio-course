@@ -33,7 +33,7 @@ The following packages have been kept back:
 0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
 ```
 
-If the dependencies have changed on one of the packages you have installed so that a new package must be installed to perform the upgrade then that will be listed as ["kept-back"](https://debian-administration.org/article/69/Some_upgrades_show_packages_being_kept_back). In our case kernel images need to be upgrade, which can be solved with:
+If the dependencies have changed on one of the packages you have installed so that a new package must be installed to perform the upgrade then that will be listed as ["kept-back"](https://debian-administration.org/article/69/Some_upgrades_show_packages_being_kept_back). In our case kernel images need to be upgraded, which can be solved with:
 
 ```bash
 sudo apt-get dist-upgrade
