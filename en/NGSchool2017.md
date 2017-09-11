@@ -349,7 +349,7 @@ root                     /home/aln/miniconda3
 
 Activate new env and install particular fastqc version:
 
-```
+```bash
 source activate old
 conda install fastqc=0.11.4
 ```
