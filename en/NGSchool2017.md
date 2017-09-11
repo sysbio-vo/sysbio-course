@@ -361,9 +361,9 @@ How to remove particular package or environment:
 
 ```bash
 # Remove package fastqc from environment old
-conda remove --name old fastqc
-# Remove environment old entirely
-conda remove --name old --all
+conda remove --name test fastqc
+# Remove environment test entirely
+conda remove --name test --all
 ```
 
 If you are not sure in which channel the package is exactly, you can look up on [http://anaconda.org](http://anaconda.org/) and install using following command without adding particular channel:
