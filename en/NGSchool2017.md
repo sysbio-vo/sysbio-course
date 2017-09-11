@@ -288,5 +288,7 @@ chmod u+x Miniconda3-latest-Linux-x86_64.sh
 ./Miniconda3-latest-Linux-x86_64.sh
 ```
 
+There is very nice [tutorial](https://conda.io/docs/user-guide/getting-started.html) from conda site, it is highly recommended to read it all, here we will briefly overview the most important things.
+
 
 
