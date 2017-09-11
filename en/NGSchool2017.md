@@ -326,7 +326,7 @@ conda install fastqc
 conda list
 ```
 
-You will see that there are multiple versions of fastqc with the same version number. The reason for that is different builds of packages with otherwise identical names and versions, where build number is non-negative integer.
+You will see that there are multiple versions of fastqc with the same version number. The reason for that is [different builds of packages](https://conda.io/docs/user-guide/tasks/build-packages/package-spec.html) with otherwise identical names and versions, where build number is non-negative integer.
 
 But sometimes you have to install the software of an older version, because you need to reproduce the particular environment \(e.g. in case you do the benchmarking of some algorithms\). Lets create new environment and play with versions a little bit.
 
