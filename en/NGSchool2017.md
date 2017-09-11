@@ -341,10 +341,7 @@ You can check what envs do you have now:
 ngschool              *  /home/aln/miniconda3/envs/ngschool
 old                      /home/aln/miniconda3/envs/old
 root                     /home/aln/miniconda3
-
 ```
-
-
 
 
 
