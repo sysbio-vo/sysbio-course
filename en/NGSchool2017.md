@@ -280,5 +280,34 @@ Remember this case as it is one of the most typical troubles newbies encounter w
 
 Using shared computation resources will mean that you don't have root access, so we need smth flexible and easy to deal with, which allows to transfer our configured environment from host to host easily. [Conda](https://conda.io/) is a popular solution on that regards.
 
+Let's start with installing [Miniconda](https://conda.io/miniconda.html) \(contains the conda package manager and Python\):
+
+```
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
