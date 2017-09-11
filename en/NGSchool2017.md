@@ -713,7 +713,7 @@ configfile: "config.yaml"
 rule all:
     input:
         expand("{dataset}.sorted.txt", dataset=config["datasets"])
- 
+
 rule sort:
     input:
         "{dataset}.txt"
