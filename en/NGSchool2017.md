@@ -547,5 +547,25 @@ We also have new file in our folder:
 10
 ```
 
+Now, let's modify Snakefile, so it will process both A and B files. By default snakemake executes the first rule in the snakefile. This gives rise to pseudo-rules at the beginning of the file that can be used to define build-targets similar to GNU Make. So, in a way in the `all` rule we request all the output files to be present:
+
+```
+(ngschool) aln@aln-vb:~/snake_test$ cat Snakefile 
+DATASETS = ["A", "B"]
+ 
+rule all:
+    input:
+        expand("{dataset}.sorted.txt", dataset=DATASETS)
+ 
+rule sort:
+    input:
+        "{dataset}.txt"
+    output:
+        "{dataset}.sorted.txt"
+    shell:
+        "sort -n {input} > {output}"
+(ngschool) aln@aln-vb:~/snake_test$ 
+```
+
 
 
