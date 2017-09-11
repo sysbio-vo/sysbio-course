@@ -370,12 +370,22 @@ If you are not sure in which channel the package is exactly, you can look up on 
 
 ```bash
 conda install --channel https://conda.anaconda.org/pandas bottleneck
+# Alternatively
+conda install -c pandas bottleneck
 ```
 
 Not all the package are available from conda repos, but you cad install more with pip \(stands for "Pip Installs Packages"\) package management system, which is used to install and manage software packages written in Python. Pip comes together with Miniconda, it cannot manage envs and so on, it will just install the package into current conda env.
 
 ```bash
  pip install see
+```
+
+If you need to update conda use the command below, it also tells you about other packages that will be automatically updated or changed with the update.
+
+```
+conda --version
+conda update conda
+
 ```
 
 
