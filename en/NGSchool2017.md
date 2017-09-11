@@ -472,8 +472,6 @@ install.packages("ggplot2")
 
 If you are inside conda environment and didn't mess up anything the packages will be installed into `~/miniconda3/envs/clone/lib/R/library`. So you will have perfect separation of environments.
 
-
-
 #### Writing pipelines with SnakeMake
 
 First, install SnakeMake
@@ -486,13 +484,14 @@ pip install snakemake
 Let's start with very basic example - sorting some files.
 
 ```bash
-
 mkdir snake_test
 cd snake_test
 # Following lines create two files with numbers randomly generated in a range from 1 to 10
 python -c $'import random\nfor i in range(1,10): print(random.randint(1,10))' > A.txt
 python -c $'import random\nfor i in range(1,10): print(random.randint(1,10))' > B.txt
 ```
+
+The content of the A.txt:
 
 ```bash
 (ngschool) aln@aln-vb:~/snake_test$ cat A.txt 
@@ -505,6 +504,19 @@ python -c $'import random\nfor i in range(1,10): print(random.randint(1,10))' > 
 9
 4
 4
+```
+
+Create the file names `Snakemake` with the following content:
+
+```bash
+(ngschool) aln@aln-vb:~/snake_test$ cat Snakemake 
+rule sort:
+    input:
+        "A.txt"
+    output:
+        "A.sorted.txt"
+    shell:
+        "sort -n {input} > {output}"
 
 ```
 
