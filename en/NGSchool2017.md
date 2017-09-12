@@ -5,6 +5,7 @@
 * [Installing packages with conda](#installing-packages-with-conda)
   * [Conda and R](https://www.gitbook.com/book/sysbio-vo/sysbio-course/edit#)
 * [Writing pipelines with SnakeMake](#writing-pipelines-with-snakemake)
+  * [More advanced example](#more-advanced-example)
 
 #### Basic commands to deal with packages in Ubuntu
 
@@ -476,11 +477,12 @@ If you are inside conda environment and didn't mess up anything the packages wil
 
 There is excellent [presentation](http://slides.com/johanneskoester/deck-1#/) made by snakemake authors, which you should follow, since the code below closely follows it. Official [tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html) follows more advanced example.
 
-First, install SnakeMake
+First, install SnakeMake:
 
 ```bash
 source activate ngschool
-pip install snakemake
+# It is a right way to install if you want snakemake to handle dependencies
+conda install snakemake
 ```
 
 Let's start with very basic example - sorting some files.
@@ -662,7 +664,6 @@ eog dag.svg
 
 ![](../images/dag.svg)
 
-
 How about some parallelization?
 
 ```bash
@@ -726,12 +727,24 @@ rule sort:
         "sort --parallel {threads} {input} > {output}"
 ```
 
-And last, install pyyaml package and run snakemake:
+And last, run snakemake:
 
 ```bash
-pip install pyyaml
 snakemake -F
 ```
 
+##### More advanced example
 
+Unpack `snack_qc.tar.gz`, go inside the folder and run following commands:
+
+```
+source activate ngschool
+conda install fastqc
+snakemake -s workflows/qc.wf -p --configfile configs/config.yaml --cores 4 -r
+ls fastqc/
+snakemake --dag -s workflows/qc.wf --configfile configs/config.yaml | dot -Tsvg > dag.svg
+eog dag.svg
+```
+
+Check fastqc html report. What can you tell about them?
 
