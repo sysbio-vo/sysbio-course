@@ -1,0 +1,45 @@
+import pandas as pd
+
+wd = os.getcwd()
+RULES = os.path.join(wd, "rules")
+include: os.path.join(RULES, "gunzip.rules")
+include: os.path.join(RULES, "fastqc.rules")
+
+# Get samples IDs
+if not "samples" in config["metadata"].keys():
+    sys.exit("You jave to provide a sample file.")
+
+SAMPLE_IDS = pd.read_table(config["metadata"]["samples"])['ID']
+
+
+# Check that directories are properly defined
+if not ("raws" in config["dir"].keys()):
+    sys.exit("The parameter config['dir']['raws'] should be specified in the config file.")
+else:
+    RAWS_DIR = config["dir"]["raws"]
+
+if not ("fastqc" in config["dir"].keys()):
+    sys.exit("The parameter config['dir']['fastqc'] should be specified in the config file.")
+else:
+    FASTQC_DIR = config["dir"]["fastqc"]
+
+
+# Get seq_type
+if not "seq_type" in config["metadata"].keys():
+    sys.exit("Sequencing type (single or paired ends) must be defined in the config file.")
+
+SEQ_TYPE = config["metadata"]["seq_type"]
+
+if (SEQ_TYPE == "pe"):
+    if not (("metadata" in config.keys()) and ("strands" in config["metadata"].keys())):
+        sys.exit("The strands suffixes (parameter config['metadata']['strands']) should be specified in the config file for a paired ends analysis.")
+
+    STRANDS = config["metadata"]["strands"].split()
+
+
+GUNZIPPED = expand(RAWS_DIR + "/{samples}_{strands}.fastq", samples=SAMPLE_IDS, strands=STRANDS)
+FASTQC = expand(FASTQC_DIR + "/{samples}_{strands}_fastqc.{ext}", ext=["html", "zip"], samples=SAMPLE_IDS, strands=STRANDS)
+
+rule all: 
+	input: FASTQC
+	shell: "echo Job done `date '+%Y-%m-%d %H:%M'`"

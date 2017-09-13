@@ -1,0 +1,8 @@
+rule fastqc:
+    params:
+        outdir = config["dir"]["fastqc"],
+        indir = config["dir"]["raws"]
+    input: config["dir"]["raws"]+"/{file}.fastq"
+    output: config["dir"]["fastqc"] + "/{file}_fastqc.{ext}"
+    threads: config["threads"]
+    shell: "fastqc {params.indir}/* -o {params.outdir} -t {threads}"

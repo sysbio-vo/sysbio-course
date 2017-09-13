@@ -748,16 +748,12 @@ eog dag.svg
 
 Check fastqc html report. What can you tell about them?
 
-
-
 Useful links:
 
-* https://github.com/SnakeChunks/SnakeChunks
-* https://github.com/crazyhottommy/ChIP-seq-analysis/tree/master/snakemake\_ChIPseq\_pipeline
-* http://metagenomic-methods-for-microbial-ecologists.readthedocs.io/en/latest/day-1/
-* http://archive.is/Q6VPB
-
-
+* [https://github.com/SnakeChunks/SnakeChunks](https://github.com/SnakeChunks/SnakeChunks)
+* [https://github.com/crazyhottommy/ChIP-seq-analysis/tree/master/snakemake\_ChIPseq\_pipeline](https://github.com/crazyhottommy/ChIP-seq-analysis/tree/master/snakemake_ChIPseq_pipeline)
+* [http://metagenomic-methods-for-microbial-ecologists.readthedocs.io/en/latest/day-1/](http://metagenomic-methods-for-microbial-ecologists.readthedocs.io/en/latest/day-1/)
+* [http://archive.is/Q6VPB](http://archive.is/Q6VPB)
 
 
 

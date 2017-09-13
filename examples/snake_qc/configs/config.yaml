@@ -1,0 +1,11 @@
+# REQUIRED PARAMETERS
+  threads: 4
+  metadata:
+    samples: "configs/samples.tsv"
+    seq_type: "pe"
+    strands: "1 2"
+
+  dir:
+    raws: "raws" #gzipped
+    fastqc: "fastqc"                               
+    multiqc: "multiqc"
