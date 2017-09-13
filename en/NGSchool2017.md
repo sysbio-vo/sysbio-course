@@ -745,6 +745,7 @@ cd snake_qc/
 mkdir raws
 mddir fastqc
 cd raws
+# From http://www.ebi.ac.uk/ena/data/view/SRR1750053
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR175/003/SRR1750053/SRR1750053_1.fastq.gz
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR175/003/SRR1750053/SRR1750053_2.fastq.gz
 cd ..
