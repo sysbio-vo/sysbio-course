@@ -735,18 +735,26 @@ snakemake -F
 
 ##### More advanced example
 
-Unpack `snack_qc.tar.gz`, go inside the folder and run following commands:
+Run following commands:
 
 ```bash
 source activate ngschool
-conda install fastqc
+conda install fastqc subversion
+svn export https://github.com/sysbio-vo/sysbio-course/trunk/examples/snake_qc/
+cd snake_qc/
+mkdir raws
+mddir fastqc
+cd raws
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR175/003/SRR1750053/SRR1750053_1.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR175/003/SRR1750053/SRR1750053_2.fastq.gz
+cd ..
 snakemake -s workflows/qc.wf -p --configfile configs/config.yaml --cores 4 -r
 ls fastqc/
 snakemake --dag -s workflows/qc.wf --configfile configs/config.yaml | dot -Tsvg > dag.svg
 eog dag.svg
 ```
 
-Check fastqc html report. What can you tell about them?
+Check fastqc html report. What can you tell about them? Closely examine rules and workflows folders. What is different about this snakemake workflow design if you compare with previous simple example?
 
 Useful links:
 
