@@ -743,7 +743,7 @@ conda install fastqc subversion
 svn export https://github.com/sysbio-vo/sysbio-course/trunk/examples/snake_qc/
 cd snake_qc/
 mkdir raws
-mddir fastqc
+mkdir fastqc
 cd raws
 # From http://www.ebi.ac.uk/ena/data/view/SRR1750053
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR175/003/SRR1750053/SRR1750053_1.fastq.gz
