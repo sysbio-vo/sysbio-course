@@ -197,7 +197,7 @@ dpkg: dependency problems prevent configuration of rstudio:
 
 Since you're not installing RStudio from the repository the dependencies are not installed automatically, in this case you can simple install manually:
 
-```
+```bash
 sudo apt-get install libjpeg62
 ```
 
@@ -737,7 +737,7 @@ snakemake -F
 
 Unpack `snack_qc.tar.gz`, go inside the folder and run following commands:
 
-```
+```bash
 source activate ngschool
 conda install fastqc
 snakemake -s workflows/qc.wf -p --configfile configs/config.yaml --cores 4 -r
@@ -747,4 +747,17 @@ eog dag.svg
 ```
 
 Check fastqc html report. What can you tell about them?
+
+
+
+Useful links:
+
+* https://github.com/SnakeChunks/SnakeChunks
+* https://github.com/crazyhottommy/ChIP-seq-analysis/tree/master/snakemake\_ChIPseq\_pipeline
+* http://metagenomic-methods-for-microbial-ecologists.readthedocs.io/en/latest/day-1/
+* http://archive.is/Q6VPB
+
+
+
+
 
