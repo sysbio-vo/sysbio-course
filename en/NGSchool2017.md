@@ -3,7 +3,7 @@
 * [Basic commands to deal with packages in Ubuntu](#basic-commands-to-deal-with-packages-in-ubuntu)
 * [Installing R packages](#installing-r-packages)
 * [Installing packages with conda](#installing-packages-with-conda)
-  * [Conda and R](https://www.gitbook.com/book/sysbio-vo/sysbio-course/edit#)
+  * [Conda and R](#conda-and-R)
 * [Writing pipelines with SnakeMake](#writing-pipelines-with-snakemake)
   * [More advanced example](#more-advanced-example)
 
