@@ -3,7 +3,7 @@
     "plugins": [
         "-highlight",
         "sunlight-highlighter",
-        "ace"б
+        "ace",
         "expandable-chapters"
     ],
     "pluginsConfig": {
