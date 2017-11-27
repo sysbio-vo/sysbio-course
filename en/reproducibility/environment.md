@@ -6,12 +6,20 @@ TODO
 
 TODO
 
+#### Docker
+
+TODO
+
 #### Vagrant
 
 TODO
 
 
-#### Basic commands to deal with packages in Ubuntu
+### Package management
+
+TODO
+
+#### Installing Ubuntu packages
 
 Assuming you start with clean Ubuntu 16.04.
 
@@ -281,7 +289,7 @@ install.packages("XML")
 
 Remember this case as it is one of the most typical troubles newbies encounter when dealing with R packages.
 
-#### Installing packages with conda
+#### Conda package manager
 
 Using shared computation resources will mean that you don't have root access, so we need smth flexible and easy to deal with, which allows to transfer our configured environment from host to host easily. [Conda](https://conda.io/) is a popular solution on that regards.
 
@@ -477,3 +485,7 @@ install.packages("ggplot2")
 
 If you are inside conda environment and didn't mess up anything the packages will be installed into `~/miniconda3/envs/clone/lib/R/library`. So you will have perfect separation of environments.
 
+
+#### Compiling from source code
+
+TODO

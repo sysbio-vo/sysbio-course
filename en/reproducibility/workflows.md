@@ -1,9 +1,3 @@
-### Contents
-
-* [Writing pipelines with SnakeMake](#writing-pipelines-with-snakemake)
-  * [Basic example](#basic-example)
-  * [More advanced example](#more-advanced-example)
-
 #### Writing pipelines with SnakeMake
 
 There is excellent [presentation](http://slides.com/johanneskoester/deck-1#/) made by snakemake authors, which you should follow, since the code below closely follows it. Official [tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html) follows more advanced example.
@@ -266,7 +260,7 @@ And last, run snakemake:
 snakemake -F
 ```
 
-##### More advanced example
+##### Advanced example
 
 Run following commands:
 

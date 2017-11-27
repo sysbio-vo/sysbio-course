@@ -6,5 +6,7 @@
 
 [http://imlspenticton.uzh.ch:3838/conquer/](http://imlspenticton.uzh.ch:3838/conquer/)
 
+[hemberg-lab.github.io/scRNA.seq.course/introduction-to-single-cell-rna-seq.html](hemberg-lab.github.io/scRNA.seq.course/introduction-to-single-cell-rna-seq.html)
+
 
 
