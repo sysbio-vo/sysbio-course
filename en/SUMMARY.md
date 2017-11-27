@@ -1,20 +1,26 @@
 # Summary
 
 * [Introduction](README.md)
-* [Reproducible research](workflows.md)
-  * [Environment reproducibility](df)
-    * [Virtualization](sdf)
-      * [VirtualBox](sdf)
-      * [Vagrant](sdf)
-    * [Package management](sdf)
-      * [Installing Ubuntu packages](NGSchool2017.md#basic-commands-to-deal-with-packages-in-ubuntu)
-      * [Installing R packages](NGSchool2017.md#installing-r-packages)
-      * [Conda package manager](NGSchool2017.md#installing-packages-with-conda)
-  * [Workflows reproducibility with SnakeMake](sdf)
-    * [Basic example](sdf)
-    * [Advanced example](NGSchool2017.md#more-advanced-example)
-  * [Source code management](df)
-  * [Data provenance](sdf)
-* [Transcriptomics](transcriptomics.md)
+* [Reproducible research](reproducibility/README.md)
+
+  * [Environment reproducibility](reproducibility/environment.md)
+    * [Virtualization](reproducibility/environment.md#virtualization)
+      * [VirtualBox](reproducibility/environment.md#virtualbox)
+      * [Vagrant](reproducibility/environment.md#vagrant)
+    * [Package management](reproducibility/environment.md#packages)
+      * [Installing Ubuntu packages](reproducibility/environment.md#basic-commands-to-deal-with-packages-in-ubuntu)
+      * [Installing R packages](reproducibility/environment.md#installing-r-packages)
+      * [Conda package manager](reproducibility/environment.md#installing-packages-with-conda)
+      
+  * [Reproducible workflows with SnakeMake](reproducibility/workflows.md)
+    * [Basic example](reproducibility/workflows.md#basic-example)
+    * [Advanced example](reproducibility/workflows.md#more-advanced-example)
+    
+  * [Source code management](reproducibility/code.md)
+  * [Data provenance](reproducibility/data.md)
+  
+* [Transcriptomics](transcriptomics/README.md)
+
+
 * [Links](links.md)
 
