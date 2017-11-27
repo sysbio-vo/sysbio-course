@@ -8,5 +8,3 @@ In the development:\) But feel free to check what is done for now.
 
 
 
-Тут щось новеньке.
-

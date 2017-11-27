@@ -1,6 +1,6 @@
 # Summary
 
-### Getting Started
+## Getting Started
 
 * [Introduction](README.md)
 * [Reproducible research](reproducibility/README.md)
@@ -19,12 +19,13 @@
     * [Advanced example](reproducibility/workflows.md#advanced-example)
   * [Source code management](reproducibility/code.md)
   * [Data provenance](reproducibility/data.md)
+* [Robust research](robust-research.md)
 
-### Basic omics data analysis
+## Basic omics data analysis
 
 * [Transcriptomics](transcriptomics/README.md)
 
-----
+---
 
 * [Links](links.md)
 
