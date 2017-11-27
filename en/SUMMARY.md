@@ -19,6 +19,7 @@
     * [Advanced example](reproducibility/workflows.md#advanced-example)
   * [Source code management](reproducibility/code.md)
   * [Data provenance](reproducibility/data.md)
+  * [Documentation management](reproducibility/documentation.md)
 
 ### Basic omics data analysis
 
