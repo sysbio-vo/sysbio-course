@@ -1,6 +1,15 @@
-#### Virtualization
+### Virtualization
 
 TODO
+
+#### VirtualBox
+
+TODO
+
+#### Vagrant
+
+TODO
+
 
 #### Basic commands to deal with packages in Ubuntu
 
