@@ -8,6 +8,7 @@
     * [Virtualization](reproducibility/environment.md#virtualization)
       * [VirtualBox](reproducibility/environment.md#virtualbox)
       * [Docker](reproducibility/environment.md#docker)
+      * [OpenStack](reproducibility/environment.md#openstack)
       * [Vagrant](reproducibility/environment.md#vagrant)
     * [Package management](reproducibility/environment.md#package-management)
       * [Installing Ubuntu packages](reproducibility/environment.md#installing-ubuntu-packages)
