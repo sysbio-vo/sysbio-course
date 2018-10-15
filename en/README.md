@@ -1,4 +1,0 @@
-# Systems Biology Course
-
-TODO
-
