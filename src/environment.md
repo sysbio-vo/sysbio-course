@@ -1,27 +1,12 @@
 ### Virtualization
 
-TODO
-
-#### VirtualBox
-
-TODO
-
-#### Docker
-
-TODO
-
-#### OpenStack
-
-TODO
-
-#### Vagrant
-
-TODO
-
+TODO: 
+* VirtualBox
+* Docker
+* OpenStack
+* Vagrant
 
 ### Package management
-
-TODO
 
 #### Installing Ubuntu packages
 
@@ -492,4 +477,6 @@ If you are inside conda environment and didn't mess up anything the packages wil
 
 #### Compiling from source code
 
-TODO
+TODO:
+* make
+* cmake
