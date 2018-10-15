@@ -1,11 +1,3 @@
-### Virtualization
-
-TODO: 
-* VirtualBox
-* Docker
-* OpenStack
-* Vagrant
-
 ### Package management
 
 #### Installing Ubuntu packages
@@ -30,8 +22,8 @@ Building dependency tree
 Reading state information... Done
 Calculating upgrade... Done
 The following packages have been kept back:
-  linux-generic-hwe-16.04 linux-headers-generic-hwe-16.04
-  linux-image-generic-hwe-16.04
+  linux-generic linux-headers-generic
+  linux-image-generic
 0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
 ```
 
@@ -47,11 +39,11 @@ If we run upgrade again we can see that everything is ok:
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 ```
 
-Let's say we need to install R \(we can even try to search package name if we don't know it\):
+Let's say we need to install R (we can even try to search package name if we don't know it):
 
 ```bash
 apt-cache search r | grep statistic
-sudo apt-get install r-base-core r-recommended
+sudo apt-get install r-base r-recommended
 ```
 
 > **NB: **Always use **sudo** over **su**: only particular command will run in super-user mode; you will be asked for your password, so you can think twice before executing; attempts to invoke sudo can be logged.
@@ -70,13 +62,13 @@ Platform: x86_64-pc-linux-gnu (64-bit)
 >
 ```
 
-Wait, but we need the latest version, which is 3.4, why do we have 3.2? Didn't we update the system properly? Let's check the metadata of the package within Ubuntu repository:
+Wait, but it's not the latest version, why do we have 3.2? Didn't we update the system properly? Let's check the metadata of the package within Ubuntu repository:
 
 ```bash
 apt-cache show r-base
 ```
 
-We can also look at the version table as well \(shows if a package is installed and to which repository it belongs to\):
+We can also look at the version table as well (shows if a package is installed and to which repository it belongs to):
 
 ```bash
 apt-cache policy r-base
@@ -84,21 +76,23 @@ apt-cache policy r-base
 
 > **NB:** If you want to know more about apt-cache command, just run it in the console without any parameters
 
-After googling we found out that default Ubuntu repository does not contain the most fresh R distribution, as packages are updated gradually when some time passes after package authors updates it \(it can happen with many packages, especially actively developed ones\). We are suggested to add custom repository, which contains fresh R:
+After googling we found out that default Ubuntu repository does not contain the most fresh R distribution, as packages are updated gradually when some time passes after package authors updates it (it can happen with many packages, especially actively developed ones). We need to add additional repository, which contains fresh R (more details are [here](https://cran.r-project.org/bin/linux/ubuntu/)):
 
 ```bash
-sudo add-apt-repository ppa:marutter/rrutter
+cat <<EOF | sudo tee /etc/apt/sources.list.d/r-cran.list
+deb https://cloud.r-project.org/bin/linux/ubuntu xenial/
+EOF
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 sudo apt-get update
 ```
 
-Now after packages metadata update we see that we can upgrade smth:
+Now after packages metadata update we can check if we can upgrade smth:
 
 ```bash
-19 packages can be upgraded. Run 'apt list --upgradable' to see them.
 aln@aln-vb:~$ apt list --upgradable
 Listing... Done
-r-base-core/xenial 3.4.1-2xenial0 amd64 [upgradable from: 3.2.3-4]
-r-base-dev/xenial,xenial 3.4.1-2xenial0 all [upgradable from: 3.2.3-4]
+r-base/xenial 3.4.4-1xenial0 all [upgradable from: 3.2.3-4]
+r-base-core/xenial 3.4.4-1xenial0 amd64 [upgradable from: 3.2.3-4]
 ...
 ```
 
@@ -106,6 +100,8 @@ Finally we can initiate upgrade with our usual command:
 
 ```bash
 sudo apt-get upgrade
+# And if needed
+sudo apt-get dist-upgrade
 ```
 
 But where is the repo we just added stored? Try to examine the following folder:
@@ -113,15 +109,10 @@ But where is the repo we just added stored? Try to examine the following folder:
 ```bash
 ls /etc/apt/
 cat /etc/apt/sources.list
+cat /etc/apt/sources.list.d/r-cran.list
 ```
 
-It happens that our repository had been added into the separate file. And actually, instead of using add-apt-repository command one can do it manually by editing corresponding files:
-
-```bash
-aln@aln-vb:~$ cat /etc/apt/sources.list.d/marutter-ubuntu-rrutter-xenial.list 
-deb http://ppa.launchpad.net/marutter/rrutter/ubuntu xenial main
-# deb-src http://ppa.launchpad.net/marutter/rrutter/ubuntu xenial main
-```
+> **NB: ** There is an automatic way how to deal with the repositories using `add-apt-repository` command,  which  adds  an  external  APT  repository  to   either `/etc/apt/sources.list` or a file in `/etc/apt/sources.list.d/` or removes an already existing repository.
 
 More package install related command.
 
@@ -141,7 +132,7 @@ sudo apt-get remove --purge r-base
 Following command removes orphaned packages, i.e. packages that were installed as an dependency. Use this after removing a package which had installed dependencies you're no longer interested in.
 
 ```bash
-apt-get autoremove
+sudo apt-get autoremove
 ```
 
 > **NB: **You can accidentally remove important package, which will cause a lot of orphaned packages, don't be in a hurry to use autoremove, try to think why you suddenly have a lot of candidates
@@ -176,27 +167,28 @@ Suppress all the output:
 sudo apt-get remove -qq r-base
 ```
 
-Sometimes you need to install .deb package manually \(without Software Manager\), for example RStudio:
+Sometimes you need to install .deb package manually (without Software Manager\), for example RStudio:
 
 ```bash
-wget https://download1.rstudio.org/rstudio-xenial-1.0.153-amd64.deb 
-sudo dpkg -i rstudio-xenial-1.0.153-amd64.deb
+wget https://download1.rstudio.org/rstudio-xenial-1.1.456-amd64.deb 
+sudo dpkg -i rstudio-xenial-1.1.456-amd64.deb
 ```
 
 If you execute the lines above on a clean Ubuntu 16.04 you will most likely have error message similar to this:
 
 ```bash
-aln@aln-vb:~/Downloads$ sudo dpkg -i rstudio-xenial-1.0.153-amd64.deb 
-(Reading database ... 215529 files and directories currently installed.)
-Preparing to unpack rstudio-xenial-1.0.153-amd64.deb ...
-Unpacking rstudio (1.0.153) over (1.0.153) ...
+aln@aln-vb$ sudo dpkg -i rstudio-xenial-1.1.456-amd64.deb
+Selecting previously unselected package rstudio.
+(Reading database ... 104144 files and directories currently installed.)
+Preparing to unpack rstudio-xenial-1.1.456-amd64.deb ...
+Unpacking rstudio (1.1.456) ...
 dpkg: dependency problems prevent configuration of rstudio:
  rstudio depends on libjpeg62; however:
   Package libjpeg62 is not installed.
 ...
 ```
 
-Since you're not installing RStudio from the repository the dependencies are not installed automatically, in this case you can simple install manually:
+Since you're not installing RStudio from the repository the dependencies are not installed automatically, in this case you can simply install it manually:
 
 ```bash
 sudo apt-get install libjpeg62
@@ -204,12 +196,11 @@ sudo apt-get install libjpeg62
 
 #### Installing R packages
 
-> **NB: **It will save you a lot of pain if you install all the packages in the local folder even on your personal computer, this way you can easily install and update packages using RStudio graphical interface or install latest packages not available for your distribution. [Starting from R 3.4](https://knausb.github.io/2017/07/r-3.4.1-personal-library-location/) \(Jun 2017\) though, you need to uncomment following line and specify your local lib path in the config file \(previously R did it interactively\). If you don't have root access, just create new file "~/.Renviron" and put the R\_LIBS\_USER variable there.
+> **NB: **It will save you a lot of pain if you install all the packages in the local folder even on your personal computer, this way you can easily install and update packages using RStudio graphical interface or install latest packages not available for your distribution. If you want custom local lib path, edit the `Renviron` config file, namely `R_LIBS_USER` variable:
 
 ```bash
-aln@notik:/$ cat /etc/R/Renviron
+aln@notik:/$ cat /etc/R/Renviron # Alternatively you can create the local file ~/.Renviron
 ...
-# edd Jun 2017  Comment-out R_LIBS_USER
 R_LIBS_USER=${R_LIBS_USER-'~/R/x86_64-pc-linux-gnu-library/3.4'}
 ...
 ```
@@ -241,7 +232,7 @@ update.packages(ask = FALSE)
 install.packages("plotly")
 ```
 
-Let's try to install XML package in R \(or RStudio\):
+Let's try to install XML package in R (or RStudio):
 
 ```bash
 install.packages("XML")
@@ -253,18 +244,18 @@ Well, we've got an error:
 checking for xml2-config... no
 Cannot find xml2-config
 ERROR: configuration failed for package ‘XML’
-* removing ‘/home/aln/R/x86_64-pc-linux-gnu-library/3.2/XML’
+* removing ‘/home/aln/R/x86_64-pc-linux-gnu-library/3.4/XML’
 Warning in install.packages :
   installation of package ‘XML’ had non-zero exit status
 ```
 
-But what is wrong? R cannot install dependencies? It should. It happens that R XML package requires XML dev Ubuntu package, so the right way would be to install R XML using Ubuntu package manager \(don't execute the line yet\):
+But what is wrong? R cannot install dependencies? It should. It happens that R XML package requires XML dev Ubuntu package, so the right way would be to install R XML using Ubuntu package manager (don't execute the line yet):
 
 ```bash
 sudo apt-get install r-cran-xml
 ```
 
-However, not all the R packages can be installed using apt-get, so we can simply install XLM dev \(in Ubuntu command line!\):
+However, not all the R packages can be installed using apt-get, so we can simply install XLM dev (in Ubuntu command line!):
 
 ```bash
 sudo apt-get install libxml2-dev
@@ -276,13 +267,13 @@ And try to install XML within R again:
 install.packages("XML")
 ```
 
-Remember this case as it is one of the most typical troubles newbies encounter when dealing with R packages.
+> **NB: **Memorize the case with system dev packages as it is one of the most typical troubles newbies encounter when dealing with R packages.
 
 #### Conda package manager
 
-Using shared computation resources will mean that you don't have root access, so we need smth flexible and easy to deal with, which allows to transfer our configured environment from host to host easily. [Conda](https://conda.io/) is a popular solution on that regards.
+Using shared computation resources means that you don't have root access, so we need smth flexible and easy to deal with, which allows to transfer our configured environment from host to host easily. [Conda](https://conda.io/) is a popular solution in such case.
 
-Let's start with installing [Miniconda](https://conda.io/miniconda.html) \(contains the conda package manager and Python\):
+Let's start with installing [Miniconda](https://conda.io/miniconda.html) (contains the conda package manager and Python):
 
 ```bash
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -304,9 +295,9 @@ conda info
 Then we create and activate separate environment called 'ngschool':
 
 ```bash
-conda create --name ngschool
+conda create --name test
 ls ~/miniconda3/envs/
-source activate ngschool
+source activate test
 python --version
 ```
 
@@ -328,15 +319,15 @@ conda install fastqc
 # Check the list again
 conda list
 # Alternatively you can specify (any) env name
-conda list -n ngschool
+conda list -n test
 ```
 
 You will see that there are multiple versions of fastqc with the same version number. The reason for that is [different builds of packages](https://conda.io/docs/user-guide/tasks/build-packages/package-spec.html) with otherwise identical names and versions, where build number is non-negative integer.
 
-But sometimes you have to install the software of an older version, because you need to reproduce the particular environment \(e.g. in case you do the benchmarking of some algorithms\). On top of that you might require different python version. Lets create new environment and play with versions a little bit.
+But sometimes you have to install the software of an older version, because you need to reproduce the particular environment (e.g. in case you do the benchmarking of some algorithms). On top of that you might require different python version. Lets create new environment and play with versions a little bit.
 
 ```bash
-conda create --name test python=2
+conda create --name python2 python=2
 ```
 
 You can check what envs do you have:
@@ -345,9 +336,9 @@ You can check what envs do you have:
 (ngschool) aln@aln-vb:~$ conda info --envs
 # conda environments:
 #
-ngschool              *  /home/aln/miniconda3/envs/ngschool
-test                     /home/aln/miniconda3/envs/old
-root                     /home/aln/miniconda3
+test              *  /home/aln/miniconda3/envs/ngschool
+python2              /home/aln/miniconda3/envs/old
+root                 /home/aln/miniconda3
 ```
 
 > **NB:** By default there is also root environment, if you have many concurrent tasks/projects better to separate different logic between environments, so you can easily deploy needed env somewhere else without installing unnecessary stuff.
@@ -355,7 +346,7 @@ root                     /home/aln/miniconda3
 Activate new env and install particular fastqc version:
 
 ```bash
-source activate test
+source activate python2
 conda install fastqc=0.11.4
 conda list
 python --version
@@ -365,9 +356,9 @@ How to remove particular package or environment:
 
 ```bash
 # Remove package fastqc from environment old
-conda remove --name test fastqc
+conda remove --name python2 fastqc
 # Remove environment test entirely
-conda remove --name test --all
+conda remove --name python2 --all
 conda info --envs
 ```
 
@@ -379,7 +370,7 @@ conda install --channel https://conda.anaconda.org/pandas bottleneck
 conda install -c pandas bottleneck
 ```
 
-Not all the package are available from conda repos, but you cad install more with pip \(stands for "Pip Installs Packages"\) package management system, which is used to install and manage software packages written in Python. Pip comes together with Miniconda, it cannot manage envs and so on, it will just install the package into current conda env.
+Not all the packages are available from conda repos, but you cad install more with pip \(stands for "Pip Installs Packages"\) package management system, which is used to install and manage software packages written in Python. Pip comes together with Miniconda, it cannot manage envs and so on, it will just install the package into current conda env.
 
 ```bash
  pip install see
@@ -480,3 +471,11 @@ If you are inside conda environment and didn't mess up anything the packages wil
 TODO:
 * make
 * cmake
+
+### Virtualization
+
+TODO: 
+* VirtualBox
+* Docker
+* OpenStack
+* Vagrant
