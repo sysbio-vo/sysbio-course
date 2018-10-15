@@ -1,11 +1,11 @@
 #### Writing pipelines with SnakeMake
 
-There is excellent [presentation](http://slides.com/johanneskoester/deck-1#/) made by snakemake authors, which you should follow, since the code below closely follows it. Official [tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html) follows more advanced example.
+There is excellent [presentation](http://slides.com/johanneskoester/deck-1#/) made by snakemake authors, which you should read, since the code below closely follows it. Official [tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html) describes more advanced example.
 
 First, install SnakeMake:
 
 ```bash
-source activate ngschool
+source activate yourenv
 # It is a right way to install if you want snakemake to handle dependencies
 conda install snakemake
 ```

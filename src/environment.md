@@ -336,8 +336,8 @@ You can check what envs do you have:
 (ngschool) aln@aln-vb:~$ conda info --envs
 # conda environments:
 #
-test              *  /home/aln/miniconda3/envs/ngschool
-python2              /home/aln/miniconda3/envs/old
+test              *  /home/aln/miniconda3/envs/test
+python2              /home/aln/miniconda3/envs/python2
 root                 /home/aln/miniconda3
 ```
 
@@ -370,7 +370,7 @@ conda install --channel https://conda.anaconda.org/pandas bottleneck
 conda install -c pandas bottleneck
 ```
 
-Not all the packages are available from conda repos, but you cad install more with pip \(stands for "Pip Installs Packages"\) package management system, which is used to install and manage software packages written in Python. Pip comes together with Miniconda, it cannot manage envs and so on, it will just install the package into current conda env.
+Not all the packages are available from conda repos, but you can install more with pip (stands for "Pip Installs Packages") package management system, which is used to install and manage software packages written in Python. Pip cannot manage envs and so on, it will just install the package into current conda env.
 
 ```bash
  pip install see
@@ -392,14 +392,14 @@ conda update fastqc
 Very important function is exporting env file and creating new env based on that:
 
 ```bash
-source activate ngschool
-conda env export > ngschool.yml
+source activate test
+conda env export > test.yml
 ```
 
 Check the content of the file:
 
 ```bash
-(ngschool) aln@aln-vb:~$ cat ngschool.yml 
+(ngschool) aln@aln-vb:~$ cat test.yml 
 name: ngschool
 channels:
 - bioconda
@@ -408,17 +408,16 @@ channels:
 dependencies:
 - htop=2.0.2=0
 - ncurses=5.9=10
-prefix: /home/aln/miniconda3/envs/ngschool
+prefix: /home/aln/miniconda3/envs/test
 ```
 
-You can see that the environment description file structure if very simple, you can create such file from scratch without exporting. Lets environment name and try to create new env based on edited file:
+You can see that the environment description file structure if very simple, you can create such file from scratch without exporting. Let's change environment name and try to create new env based on edited file:
 
 ```bash
-mv ngschool.yml test.yml
+mv test.yml copy.yml
 # Edit with nano, when you're done press CTRL+X, then 'Y'
-nano test.yml
-# Remember that we deleted test env previously
-conda env create -f test.yml
+nano copy.yml
+conda env create -f copy.yml
 # List all the anvs
 conda info --envs
 ```
@@ -426,7 +425,7 @@ conda info --envs
 This way you can easily copy \*.yml file on another computer and create identical environment as on your initial host. But if you need to clone the env within the same computer the following command is useful:
 
 ```bash
-conda create --name clone --clone ngschool
+conda create --name clone --clone test
 ```
 
 Finally you can deactivate environment using:
