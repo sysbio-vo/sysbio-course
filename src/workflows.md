@@ -1,3 +1,5 @@
+Before starting review/execute the [useful tips](useful.md).
+
 #### Writing pipelines with SnakeMake
 
 There is excellent [presentation](http://slides.com/johanneskoester/deck-1#/) made by snakemake authors, which you should read, since the code below closely follows it. Official [tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/basics.html) describes more advanced example.
@@ -5,8 +7,8 @@ There is excellent [presentation](http://slides.com/johanneskoester/deck-1#/) ma
 First, install SnakeMake:
 
 ```bash
-source activate yourenv
-# It is a right way to install if you want snakemake to handle dependencies
+source activate envname
+# In case you don't have it yet
 conda install snakemake
 ```
 
@@ -265,7 +267,7 @@ snakemake -F
 Run following commands:
 
 ```bash
-source activate ngschool
+source activate envname
 conda install fastqc subversion
 svn export https://github.com/sysbio-vo/sysbio-course/trunk/examples/snake_qc/
 cd snake_qc/
@@ -282,7 +284,7 @@ snakemake --dag -s workflows/qc.wf --configfile configs/config.yaml | dot -Tsvg 
 eog dag.svg
 ```
 
-Check fastqc html report. What can you tell about them? Closely examine rules and workflows folders. What is different about this snakemake workflow design if you compare with previous simple example?
+Check fastqc html report. What can you tell about it? Closely examine rules and workflows folders. What is different about this snakemake workflow design if you compare with previous simple example?
 
 Useful links:
 
@@ -290,6 +292,3 @@ Useful links:
 * [https://github.com/crazyhottommy/ChIP-seq-analysis/tree/master/snakemake\_ChIPseq\_pipeline](https://github.com/crazyhottommy/ChIP-seq-analysis/tree/master/snakemake_ChIPseq_pipeline)
 * [http://metagenomic-methods-for-microbial-ecologists.readthedocs.io/en/latest/day-1/](http://metagenomic-methods-for-microbial-ecologists.readthedocs.io/en/latest/day-1/)
 * [http://archive.is/Q6VPB](http://archive.is/Q6VPB)
-
-
-

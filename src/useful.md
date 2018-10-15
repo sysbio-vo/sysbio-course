@@ -44,3 +44,5 @@ man screen
 * Ctrl+a-p, Ctrl+a-n — switch with the previous/next window
 * Ctrl+a-number — switch to the window number
 * Ctrl+d — kill a window
+
+You can easily google more [detailed tutorials](https://dev.to/thiht/learn-to-use-screen-a-terminal-multiplexer-gl).
