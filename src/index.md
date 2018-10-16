@@ -13,7 +13,7 @@
 
 ### Practicals
 
-* [Environmental metagenomics](environment.md)
+* [Environmental metagenomics](pr_metagenomics.md)
 
 ----
 
