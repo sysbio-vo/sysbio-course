@@ -1,0 +1,8 @@
+rule multiqc:
+    params:
+        outdir = config["dir"]["multiqc"],
+        indir = config["dir"]["fastqc"],
+        outname = "multiqc_report.html"  
+    input: expand(config["dir"]["fastqc"] + "/{samples}_{strands}_fastqc.{ext}", ext=["html"], samples=pd.read_table(config["metadata"]["samples"])['ID'], strands=config["metadata"]["strands"].split())
+    output: config["dir"]["multiqc"] + "/multiqc_report.html"
+    shell: "multiqc {params.indir}/* -o {params.outdir} -n {params.outname}"

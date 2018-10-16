@@ -1,0 +1,4 @@
+rule gunzip:
+    input: "{file}.fastq.gz"
+    output: "{file}.fastq"
+    shell: "gunzip {input}"
