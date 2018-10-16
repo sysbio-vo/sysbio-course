@@ -1,0 +1,8 @@
+rule trim_galore:
+    params:
+        outdir = config["dir"]["trimmed"],
+        indir = config["dir"]["raws"]
+    input: config["dir"]["raws"]+"/{file}.fastq"
+    output: config["dir"]["trimmed"] + "/{file}_val_{str}.fq"
+    threads: config["threads"]
+    shell: "trim_galore --paired --nextera --length 70 -o {params.outdir} {params.indir}/*"

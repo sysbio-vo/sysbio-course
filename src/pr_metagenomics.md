@@ -35,7 +35,7 @@ ls /storage/kau/data/
 **The data analysis workflow is following:**
 1. Quality control with [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 2. Quality control reports aggregation with [multiqc](https://multiqc.info/)
-3. If the quality is not satisfactory — trimming with [trim_galore](https://github.com/FelixKrueger/TrimGalore) (minimum length of the read is 70, quality threashold — 20)
+3. If the quality is not satisfactory — trimming with [trim_galore](https://github.com/FelixKrueger/TrimGalore) (minimum length of the read is 70, quality threshold — 20)
 4. OTU ([operational taxonomic unit](https://en.wikipedia.org/wiki/Operational_taxonomic_unit)) calling with [MetaPhlan2](http://huttenhower.sph.harvard.edu/metaphlan2)
 5. Summary plots generation with [Krona](https://github.com/marbl/Krona/wiki)
 6. Basic analysis in `R` with [ggplots2](https://ggplot2.tidyverse.org/)

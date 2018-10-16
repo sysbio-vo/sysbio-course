@@ -9,3 +9,4 @@
     raws: "raws" #gzipped
     fastqc: "fastqc"                               
     multiqc: "multiqc"
+    trimmed: "trimmed"
