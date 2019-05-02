@@ -267,7 +267,7 @@ snakemake -F
 Run following commands:
 
 ```bash
-source activate envname
+conda activate envname
 conda install fastqc subversion
 svn export https://github.com/sysbio-vo/sysbio-course/trunk/examples/snake_qc/
 cd snake_qc/
