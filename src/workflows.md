@@ -7,7 +7,7 @@ There is excellent [presentation](http://slides.com/johanneskoester/deck-1#/) ma
 First, install SnakeMake:
 
 ```bash
-source activate envname
+conda activate envname
 # In case you don't have it yet
 conda install snakemake
 ```

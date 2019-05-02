@@ -1,24 +1,24 @@
 Here is the random list of useful things:
 
-[Shared conda environment](useful.md#shared-conda-env)
-[How to keep ssh session alive](useful.md#ssh-session)
+* [Shared conda environment](useful.md#shared-conda-env)
+* [How to keep ssh session alive](useful.md#ssh-session)
 
 
 ### Shared conda env
 
 ```bash
 # download miniconda
-wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 # install miniconda
-bash Miniconda2-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
 # add path to the pre-configured shared environments to conda config file
 echo 'envs_dirs:
- - /storage/kau/shared_conda/envs' > ~/.condarc
+ - /storage/shared_conda/envs' > ~/.condarc
 bash
 # check if everything is ok and you see the envs
 conda info -e
 # activate needed env
-source activate nameoftheenvironment
+conda activate nameoftheenvironment
 ```
 
 ### SSH session

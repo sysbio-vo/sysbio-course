@@ -7,7 +7,7 @@ include: os.path.join(RULES, "fastqc.rules")
 
 # Get samples IDs
 if not "samples" in config["metadata"].keys():
-    sys.exit("You jave to provide a sample file.")
+    sys.exit("You have to provide a sample file.")
 
 SAMPLE_IDS = pd.read_table(config["metadata"]["samples"])['ID']
 

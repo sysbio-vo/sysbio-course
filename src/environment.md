@@ -80,7 +80,7 @@ After googling we found out that default Ubuntu repository does not contain the 
 
 ```bash
 cat <<EOF | sudo tee /etc/apt/sources.list.d/r-cran.list
-deb https://cloud.r-project.org/bin/linux/ubuntu xenial/
+deb https://cloud.r-project.org/bin/linux/ubuntu xenial-cran35/
 EOF
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 sudo apt-get update
@@ -210,11 +210,12 @@ The most convenient way to install packages is through Bioconductor \(especially
 ```bash
 ## Install Bioconductor
 ## try http:// if https:// URLs are not supported
-source("https://bioconductor.org/biocLite.R")
-biocLite()
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install()
 
 ## Install specific package
-biocLite("Rsubread")
+BiocManager::install("Rsubread")
 ```
 
 Or using default functions:
@@ -231,6 +232,8 @@ update.packages(ask = FALSE)
 # Update only a specific package (the same as install)
 install.packages("plotly")
 ```
+
+> **NB: ** For some packages it is better to install through Bioconductor if you use the latest R version, as Bioconductor usually has newest packages related to Bioinformatics
 
 Let's try to install XML package in R (or RStudio):
 
@@ -297,7 +300,7 @@ Then we create and activate separate environment called 'ngschool':
 ```bash
 conda create --name test
 ls ~/miniconda3/envs/
-source activate test
+conda activate test
 python --version
 ```
 
@@ -346,7 +349,7 @@ root                 /home/aln/miniconda3
 Activate new env and install particular fastqc version:
 
 ```bash
-source activate python2
+conda activate python2
 conda install fastqc=0.11.4
 conda list
 python --version
@@ -392,7 +395,7 @@ conda update fastqc
 Very important function is exporting env file and creating new env based on that:
 
 ```bash
-source activate test
+conda activate test
 conda env export > test.yml
 ```
 
@@ -431,7 +434,7 @@ conda create --name clone --clone test
 Finally you can deactivate environment using:
 
 ```bash
-source deactivate
+conda deactivate
 ```
 
 ##### Conda and R
