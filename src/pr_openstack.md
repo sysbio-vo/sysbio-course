@@ -6,7 +6,7 @@ There are different authentication providers as your cloud could be a part of la
 
 Other login options might include [EGI (European Grid Infrastructure)](http://egi.eu) or [Elixir](https://elixir-europe.org/), distributed infrastructure for life-science information.
 
-One can be a part of [VO](https://en.wikipedia.org/wiki/Virtual_organization_(grid_computing) (virtual organisation), which has access to different OpenStack instances as well as Grid infrastructures using alternative authentication methods. For example, EGI provides a [manual](https://egi-federated-cloud-integration.readthedocs.io/en/latest/openstack.html) on how to set up cloud infrastructure over grid.
+One can be a part of [VO](https://en.wikipedia.org/wiki/Virtual_organization_(grid_computing)) (virtual organisation), which has access to different OpenStack instances as well as Grid infrastructures using alternative authentication methods. For example, EGI provides a [manual](https://egi-federated-cloud-integration.readthedocs.io/en/latest/openstack.html) on how to set up cloud infrastructure over grid.
 
 #### Dashboard overview
 
@@ -55,7 +55,7 @@ After that wait till the power state of the VM is **Running** and press VM name.
 
 Next step is accessing VM via SSH. Unfortunatelly, we do not have many public IPs, so we are going to access VM through the jump host. Log in to **cloud-11** host using provided credentials:
 
-```
+```bash
 # Enter password when asked
 ssh username@cloud-11.bitp.kiev.ua
 # Create file and copy private key
