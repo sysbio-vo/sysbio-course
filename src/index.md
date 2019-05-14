@@ -14,6 +14,7 @@
 ### Practicals
 
 * [Environmental metagenomics](pr_metagenomics.md)
+* [Managing VMs with OpenStack](pr_openstack.md)
 
 ----
 
