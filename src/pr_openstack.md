@@ -40,9 +40,28 @@ After the login you will see OpenStack dashboard with the right menu featuring f
   * **Users**. Users list in the particular OpenStack instance.
   * **Application credentials**. Users can create [application credentials](https://docs.openstack.org/keystone/queens/user/application_credentials.html) to allow their applications to authenticate to keystone. 
 
-#### Create your first VM
+
+#### Create simple VM with vnc login
 
 Now when we are familiar with OpenStack dashboard it is time to create our first VM. Follow the instructions:
+
+1. Navigate to Project -> Compute -> Instances and press **Launch Instance**.
+2. Under **Details** menu input instance name.
+3. Under **Source** menu select boot source **Image**, set volume size as **1GB**, select **Yes** to delete volume on instance delete, press arrow near the **CirrOS** image.
+4. Under **Flavor** menu select **m1.tiny** instance type.
+5. Press **Launch Instance**.
+
+After that wait till the power state of the VM is **Running** and press VM name. You will be able to see VM overview, its network interfaces, boot log, console and action log. Check boot log to ensure that VM is running indeed.
+
+Next step is accessing VM via [Virtual Network Computing (VNC)] (https://en.wikipedia.org/wiki/Virtual_Network_Computing) interface, graphical desktop-sharing system that uses the Remote Frame Buffer protocol (RFB) to remotely control another computer. Go to console tab and click on the dark area to activate mouse capture. CirrOS has password enabled login by default, the credentials are listed above the login prompt. After you login, check if you can access internet by executing followin command:
+
+```bash
+ping google.com
+```
+
+#### VM with SSH login
+
+Using VNC is less convenient then working through SSH, while it does not allow to use key authentication. In order to create VM and login via SSH follow the instructions:
 
 1. Navigate to Project -> Compute -> Instances and press **Launch Instance**.
 2. Under **Details** menu input instance name.
