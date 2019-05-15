@@ -109,6 +109,11 @@ Now clone the repository with Vagrant configuration
 git clone https://github.com/sysbio-vo/ung-cloud.git
 cd ung-cloud/cloud/vagrant
 mkdir modules
+cd modules
+# Clone repos with required modules
+git clone https://github.com/puppetlabs/puppetlabs-stdlib stdlib
+git clone https://github.com/puppetlabs/puppetlabs-apt apt
+cd ..
 # Edit Vagrant file according by changin credentials, project name, image, flavor etc
 # Launch instance
 vagrant up
